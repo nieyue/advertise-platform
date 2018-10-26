@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>公众号支付测试页面</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <button id="click">点击</button>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script>
+
+    //获取配置
+   function getConfig(){
+        $.ajax({
+            //url: "/tool/getVerificationCode",
+            url: "/weiXinMp/js/connection",
+            type: "post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data: {
+                url:location.href
+            },
+            success: function (data) {
+                console.log(data)
+               var appId= data.appId;
+                var timestamp= data.timestamp;
+                var nonceStr= data.nonceStr;
+                var signature= data.signature;
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId:  appId, // 必填，公众号的唯一标识
+                    timestamp:  timestamp, // 必填，生成签名的时间戳
+                    nonceStr:  nonceStr, // 必填，生成签名的随机串
+                    signature:  signature,// 必填，签名
+                    jsApiList: ['checkJsApi',
+                        'onMenuShareTimeline',
+                        'onMenuShareAppMessage',
+                        'onMenuShareQQ',
+                        'onMenuShareWeibo',
+                        'onMenuShareQZone',
+                        'hideMenuItems',
+                        'showMenuItems',
+                        'hideAllNonBaseMenuItem',
+                        'showAllNonBaseMenuItem',
+                        'translateVoice',
+                        'startRecord',
+                        'stopRecord',
+                        'onVoiceRecordEnd',
+                        'playVoice',
+                        'onVoicePlayEnd',
+                        'pauseVoice',
+                        'stopVoice',
+                        'uploadVoice',
+                        'downloadVoice',
+                        'chooseImage',
+                        'previewImage',
+                        'uploadImage',
+                        'downloadImage',
+                        'getNetworkType',
+                        'openLocation',
+                        'getLocation',
+                        'hideOptionMenu',
+                        'showOptionMenu',
+                        'closeWindow',
+                        'scanQRCode',
+                        'chooseWXPay',
+                        'openProductSpecificView',
+                        'addCard',
+                        'chooseCard',
+                        'openCard'] // 必填，需要使用的JS接口列表
+                });
+
+
+
+            }
+        })
+    }
+    var business={
+        wx:{
+            appId:'',
+            timestamp:'',
+            nonceStr:'',
+            package:'',
+            signType:'',
+            paySign:'',
+        }
+    }
+    //js微信支付
+    function wxPay(appId, timeStamp, nonceStr, package, signType, paySign,callback){
+        wx.chooseWXPay({
+            appId:appId,
+            timestamp:timeStamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+            nonceStr:nonceStr, // 支付签名随机串，不长于 32 位
+            package:package, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=***）
+            signType:signType, // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+            paySign:paySign, // 支付签名
+            complete: function (res) {
+                if(res.errMsg == "chooseWXPay:ok" ) {
+                    // alert(res.errMsg)
+                    alert("支付成功");
+                    callback();
+                    //location.replace("/wx/index")
+                }else if(res.errMsg == "chooseWXPay:cancel"){
+                    //alert(res.errMsg)
+                    alert("取消支付");
+                }else if(res.errMsg == "chooseWXPay:fail"){
+                    // alert(res.errMsg)
+                    alert("支付失败");
+                }
+            }
+        });
+    }
+    function getOrder(callback) {
+        $.ajax({
+            //url: "/tool/getVerificationCode",
+            url: "/weiXinPay/unifiedOrder",
+            type: "post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data: {
+                orderId: 1,
+                type:1,
+                },
+            success: function (data) {
+                console.log(data)
+                var json=JSON.parse(data);
+                business.wx.appId=json.appId;
+                business.wx.timestamp=json.timestamp;
+                business.wx.nonceStr=json.nonceStr;
+                business.wx.package=json.package;
+                business.wx.signType=json.signType;
+                business.wx.paySign=json.paySign;
+                callback()
+            }
+        })
+    }
+
+    function isWeiXinBrowse(){
+        var wx=navigator.userAgent.match(/MicroMessenger/);
+        if(wx){
+            if(wx[0]==='MicroMessenger'){
+                return true;
+            }
+        }
+        return false;
+    }
+    //初始化，判断是否微信浏览器
+    if(isWeiXinBrowse()) {
+        //微信授权登录
+      if(!sessionStorage.getItem("weixinlogin")){
+          sessionStorage.setItem("weixinlogin",1);
+          location.replace("/weiXinMp/authorize");
+          }else{
+            //location.replace("/user/login");
+          }
+        //配置
+        getConfig()
+
+        wx.ready(function(){
+            // config信息验证后会执行ready方法，
+            // 所有接口调用都必须在config接口获得结果之后，
+            // config是一个客户端的异步操作，
+            // 所以如果需要在页面加载时就调用相关接口，
+            // 则须把相关接口放在ready函数中调用来确保正确执行。
+            // 对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+            $("#click").on("click",function(){
+
+                getOrder(function(){
+                    wxPay(business.wx.appId,
+                        business.wx.timestamp,
+                        business.wx.nonceStr,
+                        business.wx.package,
+                        business.wx.signType,
+                        business.wx.paySign,
+                        function(){
+                 })
+                })
+
+            })
+        });
+    }
+
+
+</script>
+
+</body>
+</html>

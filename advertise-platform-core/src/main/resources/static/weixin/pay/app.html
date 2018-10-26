@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>APP支付测试页面</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <button id="click">点击</button>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+
+    var business={
+        wx:{
+            appid:'',
+            partnerid:'',
+            prepayid:'',
+            package:'',
+            noncestr:'',
+            timestamp:'',
+            sign:'',
+        }
+    }
+
+    function getOrder(callback) {
+        $.ajax({
+            url: "/weiXinPay/unifiedOrder",
+            type: "post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data: {
+                orderId: 1,
+                type:3,
+                },
+            success: function (data) {
+                console.log(data)
+                var json=JSON.parse(data);
+                business.wx.appid=json.appid;
+                business.wx.partnerid=json.partnerid;
+                business.wx.prepayid=json.prepayid;
+                business.wx.package=json.package;
+                business.wx.noncestr=json.noncestr;
+                business.wx.timestamp=json.timestamp;
+                business.wx.sign=json.sign;
+                alert(data)
+                callback()
+            }
+        })
+    }
+
+            $("#click").on("click",function(){
+                getOrder(function(){
+                })
+            })
+
+</script>
+
+</body>
+</html>

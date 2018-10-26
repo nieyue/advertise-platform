@@ -1,0 +1,47 @@
+ //右侧内容的外层
+ .rightbody-wrap{
+    //右侧内容的头
+    .rightbody-header{
+        background-color: #fff;
+        box-shadow: 0 2px 3px 2px rgba(0,0,0,.1);
+    }
+    //右侧内容
+    .rightbody-content{
+        //高度用百分比，源于父层
+        height: ~'calc(100% - 52px)';
+        //最小高度源于viewport高度，
+        min-height: ~'calc(100vh - 52px)';
+        width:1200px;
+        margin:auto;
+        padding: 0;
+        //右侧内层面包屑
+        .rightbody-content-crumb{
+            margin: 16px 0;
+            display:inline-block;
+        }
+        //右侧实体内容
+        .rightbody-content-body{
+            height: 100%;
+            margin-bottom:50px;
+            //公共外层
+            .body-wrap{
+                padding:10px 0;
+                border-radius: 6px;
+                margin: 0 20px auto;
+                overflow: hidden;
+                //按钮外层
+                .body-btn-wrap{
+                    margin:10px 0;
+                    //搜索外层
+                    .search-wrap{
+                        margin:10px 0;
+                        //标题
+                        .search-wrap-input{
+                            width: 150px;
+                        }
+                    }        
+                }
+            }
+        }
+    }
+}

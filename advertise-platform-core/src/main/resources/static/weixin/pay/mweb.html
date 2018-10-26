@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>h5测试页面</title>
+</head>
+<body>
+<div id="app">
+    <div>
+        <button id="click">点击</button>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+
+    var business={
+        wx:{
+            mwebUrl:'',
+        }
+    }
+
+    function getOrder(callback) {
+        $.ajax({
+            url: "/weiXinPay/unifiedOrder",
+            type: "post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data: {
+                orderId: 1,
+                type:4,
+                },
+            success: function (data) {
+                console.log(data)
+                var json=JSON.parse(data);
+                business.wx.mwebUrl=json.mwebUrl;
+                callback()
+            }
+        })
+    }
+
+            $("#click").on("click",function(){
+                getOrder(function(){
+                    location.href=business.wx.mwebUrl
+                })
+            })
+
+</script>
+
+</body>
+</html>

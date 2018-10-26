@@ -1,0 +1,119 @@
+ //右侧内容的外层
+ .rightbody-wrap{
+    margin-left: 260px;
+    //右侧内容的头
+    .rightbody-header{
+        background-color: #fff;
+        width:~'calc(100% - 260px)';
+        height: 38px;
+        box-shadow: 0 2px 3px 2px rgba(0,0,0,.1);
+        position: fixed;
+        right:0;
+        top:82px;
+        z-index: 999;
+        //滑块左按钮
+        .rightbody-header-left{
+            height:38px;
+            float:left;
+            width:38px;
+        }
+        .rightbody-header-left:focus{
+          box-shadow: none;
+        }
+        //滑块右按钮
+        .rightbody-header-right{
+            height:38px;
+            float: right;
+            width:38px;
+        }
+        .rightbody-header-right:focus{
+            box-shadow: none;
+          }
+        //滑道包裹
+        .rightbody-header-body-wrap{
+            display: inline-block;
+            width:~'calc(100% - 76px)';
+            height:38px;
+            line-height: 38px;
+            background: #ececec;
+            overflow: hidden;
+            white-space: nowrap;
+            //滑道包裹
+            .rightbody-header-body{
+                display: inline-block;
+                //滑块包裹
+                .rightbody-header-body-item-wrap{
+                    display:inline-block;
+                    border:1px solid #ececec;
+                    height:32px;
+                    line-height:32px;
+                    margin:4px;
+                    font-size:12px;
+                    background-color:#fff;
+                    cursor: pointer;
+                    //滑块
+                    .rightbody-header-body-item{
+                        padding:0 10px;
+                        display:inline-block;
+                        //滑块文字
+                        .rightbody-header-body-item-name{
+                            color:#999;
+                            display:inline-block;
+                            height: 100%;
+                            
+                        }
+                    }
+                    //滑块关闭
+                    .rightbody-header-body-item-close{
+                        display: inline-block;
+                        border-left:1px solid #ececec;
+                        height:30px;
+                        padding:0 5px;
+                        line-height:32px;
+                    }
+                }
+            }
+        }
+    }
+    //右侧内容
+    .rightbody-content{
+        //高度用百分比，源于父层
+        height: ~'calc(100% - 52px)';
+        //最小高度源于viewport高度，
+        min-height: ~'calc(100vh - 52px)';
+        min-width:1000px;
+        padding: 0 16px;
+        margin-top:38px;
+        //右侧内层面包屑
+        .rightbody-content-crumb{
+            margin: 16px 0;
+            display:inline-block;
+        }
+        //右侧实体内容
+        .rightbody-content-body{
+            height: 100%;
+            margin-bottom:50px;
+            //公共外层
+            .body-wrap{
+                padding:10px 0;
+                border-radius: 6px;
+                margin: 0 20px auto;
+                overflow: hidden;
+                //按钮外层
+                .body-btn-wrap{
+                    margin:10px 0;
+                    //搜索外层
+                    .search-wrap{
+                        margin:10px 0;
+                        //标题
+                        .search-wrap-input{
+                            width: 150px;
+                        }
+                    }        
+                }
+            }
+        }
+    }
+}
+
+

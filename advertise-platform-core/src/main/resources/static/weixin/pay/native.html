@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+          content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>扫码支付测试页面</title>
+</head>
+<body>
+<div id="app">
+    <img  id="img" style="width:100px;height:100px;"/>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function getContent() {
+        $.ajax({
+            url: "/tool/getVerificationCode",
+            //url: "http://nieyue.ngrok.xiaomiqiu.cn/weiXinPay/unifiedOrder",
+            type: "post",
+            xhrFields: {
+                withCredentials: true,
+            },
+            data: {orderId: 1},
+            dataType: 'text',
+            //processData:false,// 告诉jQuery不要去处理发送的数据
+            //contentType:false, // 告诉jQuery不要去设置Content-Type请求头
+            success: function (data) {
+                console.log(data)
+                //$("#img").attr("src", data);
+                var blob = new Blob([data], {type: "image/png"});
+                console.log(blob)
+                $("#img").attr("src", window.URL.createObjectURL(blob));
+            }
+        })
+    }
+    //getContent()
+
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("post","/weiXinPay/unifiedOrder",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.responseType = "blob";
+    xmlhttp.onload = function(){
+        console.log(this);
+        if (this.status == 200) {
+            console.log(this);
+            var blob = this.response;
+            console.log(blob);
+            blob = new Blob([blob], {type: "image/png"});
+            console.log(blob);
+            $("#img").attr("src", window.URL.createObjectURL(blob));
+        }
+    }
+    xmlhttp.send(formatParams({orderId: 1,type:2}));
+
+
+    //格式化参数
+    function formatParams(data) {
+        var arr = [];
+        for (var name in data) {
+            arr.push(encodeURIComponent(name) + "=" + encodeURIComponent(data[name]));
+        }
+        arr.push(("v=" + Math.random()).replace(".", ""));
+        return arr.join("&");
+    }
+</script>
+
+</body>
+</html>

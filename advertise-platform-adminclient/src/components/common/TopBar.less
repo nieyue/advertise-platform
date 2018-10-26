@@ -1,0 +1,74 @@
+//顶部外层
+.topbar{
+    display: inline-block;
+    position: fixed !important;
+    width:100%;
+    height: 82px;
+    background-color:#fff;  
+    z-index: 999;
+    top:0;
+    left:0;
+    min-width:1200px;
+    //顶部左边
+    .topbar-left{
+        display: inline-block;
+        height: 82px;
+        width:260px;
+        background: #fff;
+        //margin-left: 2rem;
+        //顶部左边标题
+        .topbar-left-title{
+            display: inline-block;
+            font-size:1.2rem;
+            line-height: 55px;
+            color:#000;
+            vertical-align:30px;
+            
+        }
+    }
+    //顶部菜单
+    .topbar-nav{
+        display:inline-block;
+        vertical-align: 30px;
+        font-size: 18px;
+        margin-left:2rem;
+        a{
+            margin:0 1.5rem;
+            color:#666;
+        }
+    }
+
+    //登录注册
+    .topbar-loginregister{
+        display:inline-block;
+        vertical-align: 30px;
+        font-size: 33px;
+        margin-left:3rem;
+    }
+    //顶部右边
+    .topbar-right{
+        float: right;
+        margin-right:0;
+        display: inline-block;   
+        height: 82px;
+        .topbar-right-logintext{
+            font-size:1.2rem;
+            color:#000;
+            height:82px;
+            margin-right:20px;
+            display:inline-block;
+            line-height:82px;
+        }
+        .topbar-right-loginout{
+            font-size:1.6rem;
+            display: inline-block;   
+            height: 82px;
+            color:#fff;
+            border-radius: 0;
+            border-left:1px solid #2d8cf0;        
+            border-right:1px solid #2d8cf0;   
+            background-color:#2d8cf0;  
+            vertical-align: top;  
+         }
+    }
+    }

@@ -1,0 +1,98 @@
+server:
+  port: 8091
+  servlet:
+    session:
+      timeout: 18000
+      #timeout: 1296000s #1个月
+      cookie:
+        name: SESSION
+  tomcat:
+    max-threads: 1000
+    min-spare-threads: 200
+    accept-count: 1000
+    max-connections: 1000
+ # connection-timeout: 60
+spring:
+  datasource:
+    name: master
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.190.133.146:3306/advertise_platform_core_db
+    username: root
+    password: liliu
+  redis:
+    host: 118.190.133.146
+    password: liliu
+    port: 6379
+    database: 1
+    timeout: 3000
+    jedis:
+      pool:
+        min-idle: 100
+        max-idle: 300
+        max-active: 800
+    lettuce:
+      pool:
+        min-idle: 100
+        max-idle: 300
+        max-active: 800
+myPugin:
+  jmx:
+    rmi:
+      hostname: 118.190.133.146
+      port: 1234
+  uploaderPath:
+    rootPath: /home
+    locationPath: /uploaderPath/img
+  session:
+    myDomainName: boya1.cn
+  projectName: AdvertisePlatformCoreProject
+  projectDomainUrl: http://ccsd.boya1.cn
+  shiro:
+    anon:
+      locations: / , /*.txt  , /swagger-resources/** , /swagger-ui.html , /webjars/** , /v2/** , /home/** ,/weixin/** , /resources/** ,/uploaderPath/**
+  alibaba:
+    sms:
+      appkey: LTAIC9ZQBJZr7Gpz
+      appsecret: hHSkf87dAg1aQzQnBPNbH42oKiDdef
+      signName: 激活码商城
+      templateCodeAcountRegister: SMS_126363887
+      templateCodePasswordUpdate: SMS_18805473
+      templateCodeWithdrawalsPasswordUpdate: SMS_126620523
+      templateCodePhoneUpdate: SMS_126640526
+      templateCodeAuthenticationBind: SMS_126570469
+    alipay:
+      APP_ID: 2018011501882345
+      APP_PRIVATE_KEY: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCSWnoTpNHVDKO1gTMLl2N9yS1RusMIQQeIxW9eb5R4DSoLkVbIIF22/Q07iKFelRKneD8uUMOsnh+MwfbLFGWb2sGDUl3cHMmQTcTrp2CG1aCihY/glzbR80RT7XzIw1T+fnEwg8MDeSgoHmJsQflVvm3xReaqzB1yU0lec+kRI/1nayn2XLUob7TDXDEj8sp5iPhXevQaQaSB4RBSd+oSthqrHO85byEP80MwRkSsRCfISYzl5sPOaqDrTWU4TCDB1g3vkDKxjpdXrtZeQkimGZhu6hucO9bajH5p2i7CV634NVuSeKYPa5rytV2h9uPz0dyJz+DrEwls77PJn61fAgMBAAECggEAM91eb8G0HtVI2tS7ezseJgB6UAFohm9NNToKmqPeMKExqkHKSEe4DlYlL1jfHv6jSrgBY+95OJ4cviwqwpMq4w2mEFzLKGsHP11gEMcTHRVtxMqiT0wnQEX+i+OYmikm4L18bV30aTGxem4yIP1MWAeRPLSx5wtI0DAVyyQ2jzzxJqSk+dHlSyOtZH1e0ExoOTymu8XesKaH113OhJhE8iOoUYtOv4qz3QMTVMv0Btg8oiJtJlCDqWeQIt8SX5aS3/USMmdgMUbzxLAziL0IZeiI7R6etgP9fOsxSAPgqbZzYvs3yJe4DdzKJftpnpH0ZwIAgQHdAFFHUwR+bYwHOQKBgQDTFC4HM/aJlgu703Dn67EGHRpZ13imOO1ZmcG3bNU0vP8L0TO8lHJEkQ03u8Fh/jpvEzFs2RxT+zKP81ejgYCmjD4PbpC2abJabbu0XnGiaHw99w0Mdh8OM33Ae6y/NcwYOPMfV8ejFJ99LiwK18gkkQFaILrRZ57PH3RRerTmrQKBgQCxf/tYlrIl1CQDbcnwdVd8oT9jOhBdLIBBoHfndX5y88L1FtNybxffjVbCFD6YpKp1effkV+cKbdSi7NX8ojSHWnyq2/Bu2+c/wCnTE/29yR4TwxNkNt6+NxUcW9bx5VTB5h4mXM0GIwJvgLrt9IZuxzFhprSif3jF48FRSfaBuwKBgQCYNbYXVZ5TitK9R/TkGO7XpMbqwFltLCHj+d9aQO3iEOOuBtbTBwz7asnoRclmu6gxjtqWTl2CJeNJMMYizvERqJHcGPPbxo5pbTXtFCnHXqcxG+TZ9pfgarskwUpJvCaH1RFkqaz5aZa080WpL/9QdwxNjMqK1LkNTPZZBy5KJQKBgCtiDnq+ilg4m3zDDsJYy8NIXgfQn0NGpypjICtQSlGqRpJEu/WSNZGMKBJThGEmjgscfnwvB+dCpOAVZs/SjWgvs5zHGOLfmIu6Wf6fOjtytok5+rlZt+Nh7yT5RXXmCWtC5UeXEv1W/TdnjUivpVPaF7W4WxoEce5cFlnZ7AgVAoGABzr4o/P06GbsC6dPApCMLIsetLT6iF58d9I71mliVWG7pSVD9lTAdaTHanPAU6JzQ9/YBfBc28y9Zr7uhx3hqzjHJbm/vswmItptsa9hrCOIHuLu2YHtbSqEs1MEDsQMQMFXEs378wQ3Dwj4/hpXTT/vwZ059cnYbIqrbQDtaW0=
+      APP_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAklp6E6TR1QyjtYEzC5djfcktUbrDCEEHiMVvXm+UeA0qC5FWyCBdtv0NO4ihXpUSp3g/LlDDrJ4fjMH2yxRlm9rBg1Jd3BzJkE3E66dghtWgooWP4Jc20fNEU+18yMNU/n5xMIPDA3koKB5ibEH5Vb5t8UXmqswdclNJXnPpESP9Z2sp9ly1KG+0w1wxI/LKeYj4V3r0GkGkgeEQUnfqErYaqxzvOW8hD/NDMEZErEQnyEmM5ebDzmqg601lOEwgwdYN75AysY6XV67WXkJIphmYbuobnDvW2ox+adouwlet+DVbknimD2ua8rVdofbj89Hcic/g6xMJbO+zyZ+tXwIDAQAB
+      ALIPAY_PUBLIC_KEY: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1as5J4xV8WZncyzVlNkUC+xla5B4h7AjvBWsvxE5cqYpcy+70lLuxDUDkh7Yc1rGb8fkJCjBK6L4+5msq5/81b8ExZh7wJDsqKjvLnRQJBhFqX+V2k9J3JzYx034q2d2mPRy12wEurlXr/frf9LEmdlbG1dKf+kX0mcLglUhSe6lTlwayvYiSsVQSgla5xGUeXlh1sMD/8/MUVN9kqN33DcKVDNgDYGkZbSeKJOLVWW84wbrMGwhJqFhVk8uNQtmW0DeOUSjFnHLI835wzzE6dWMYrf4MaABm1srMkC7hMIytdVv5tQ6fcItbttFyL6gwhTGQLuTIw69nsjDOCiePwIDAQAB
+  weixin:
+    open:
+      componentAppId: "wx315b08d21e32ce6d"
+      componentSecret: "2bcb9642efd31e21f6a17c57cd262c66"
+      componentToken: "nieyue"
+      componentAesKey: "dS2UVUEwFSMjmRGSYOY0Q9Kgfb9AeEP28dkyhT37MiZ"
+    redis:
+      host: "118.190.133.146"
+      password: liliu
+      port: 6379
+      database: 2
+      timeout: 3000
+    mp:
+      #微信公众号或者小程序等的appid
+      appId: wx4d2cb896c1256cbe
+      #微信公众号或者小程序等的secret
+      secret: bf1779eb5d8ecf362ed21a9d736b3571
+    pay:
+      #微信公众号或者小程序等的appid
+      appId: wx4d2cb896c1256cbe
+      #微信支付商户号
+      mchId: 1513989441
+      #微信支付商户密钥
+      mchKey: zk0yd2n2e4velz2afqnyiknbnburrjdh
+      #服务商模式下的子商户公众账号ID
+      subAppId:
+      #服务商模式下的子商户号
+      subMchId:
+      # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
+      keyPath:
+      #SECRET: bf1779eb5d8ecf362ed21a9d736b3571
