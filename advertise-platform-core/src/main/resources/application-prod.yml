@@ -1,3 +1,10 @@
+#日志记录
+logging:
+  level:
+    org:
+      springframework:
+        web: error
+      hibernate: ERROR
 server:
   port: 8091
   servlet:
@@ -47,6 +54,8 @@ myPugin:
     myDomainName: boya1.cn
   projectName: AdvertisePlatformCoreProject
   projectDomainUrl: http://ccsd.boya1.cn
+  payCancelUrl: ${myPugin.projectDomainUrl}/payCancel.html
+  paySuccessUrl: ${myPugin.projectDomainUrl}/paySuccess.html
   shiro:
     anon:
       locations: / , /*.txt  , /swagger-resources/** , /swagger-ui.html , /webjars/** , /v2/** , /home/** ,/weixin/** , /resources/** ,/uploaderPath/**
@@ -95,4 +104,3 @@ myPugin:
       subMchId:
       # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
       keyPath:
-      #SECRET: bf1779eb5d8ecf362ed21a9d736b3571

@@ -37,7 +37,7 @@
 
     var xmlhttp;
     xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("post","/weiXinPay/unifiedOrder",true);
+    xmlhttp.open("post","/payment/weXinUnifiedOrder",true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.responseType = "blob";
     xmlhttp.onload = function(){

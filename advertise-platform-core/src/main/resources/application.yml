@@ -1,11 +1,3 @@
-#日志记录
-logging:
-  level:
-    org:
-      springframework:
-        web: DEBUG
-      hibernate: ERROR
-
 #mybatis配置
 #mybatis:
 #  #check-config-location: true

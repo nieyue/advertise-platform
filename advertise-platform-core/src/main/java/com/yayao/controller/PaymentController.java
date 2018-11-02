@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.yayao.bean.Payment;
 import com.yayao.business.AlipayBusiness;
+import com.yayao.business.WeiXinBusiness;
 import com.yayao.service.PaymentService;
+import com.yayao.util.DateUtil;
 import com.yayao.util.MyDom4jUtil;
 import com.yayao.util.ResultUtil;
 import com.yayao.util.StateResultList;
@@ -13,9 +15,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
@@ -30,11 +36,15 @@ import java.util.*;
 @RestController
 @RequestMapping("/payment")
 public class PaymentController extends BaseController<Payment,Long>{
-	@Resource
+	@Value("${myPugin.projectDomainUrl}")
+	String projectDomainUrl;
+	@Autowired
 	private PaymentService paymentService;
-	@Resource
+	@Autowired
 	private AlipayBusiness alipayBusiness;
-	
+	@Autowired
+	private WeiXinBusiness weiXinBusiness;
+
 	
 	/**
 	 * 支付分页浏览
@@ -78,8 +88,8 @@ public class PaymentController extends BaseController<Payment,Long>{
 		map.put("order_number", orderNumber);
 		map.put("type", type);
 		map.put("business_type", businessType);
-		map.put("businessId", businessId);
-		map.put("accountId", accountId);
+		map.put("business_id", businessId);
+		map.put("account_id", accountId);
 		map.put("create_date", createDate);
 		map.put("update_date", updateDate);
 		map.put("status", status);
@@ -119,14 +129,91 @@ public class PaymentController extends BaseController<Payment,Long>{
 		}
 		return ResultUtil.getSlefSRFailList(ls);
 	}
+	@ApiOperation(value = "阿里云支付统一下单", notes = "阿里云支付统一下单")
+	@RequestMapping("/alipayUnifiedOrder")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="orderId",value="订单id",dataType="string", paramType = "query"),
+			@ApiImplicitParam(name="type",value="阿里云支付类型，1当面付，2app支付，3手机网站,4电脑网站",dataType="string", paramType = "query"),
+	})
+	//@ResponseBody
+	public String alipayUnifiedOrder(
+			@RequestParam("orderId")String orderId,
+			@RequestParam(value="type",required = false,defaultValue = "1")Integer type,
+			HttpServletRequest request,
+			HttpServletResponse response
+	) throws Exception {
+		Payment payment=new Payment();
+		payment.setSubject("测试");
+		payment.setBody("测试");
+		String outtradeno = "ww" + DateUtil.getOrdersTime();
+		payment.setOrderNumber(outtradeno);
+		payment.setMoney(0.01);
+		payment.setStatus(1);//已下单
+		payment.setType(2);//支付类型，1支付宝，2微信,3百度钱包,4Paypal,5网银
+		payment.setBusinessType(1);//业务类型，1充值，2提现，3退款
+		payment.setNotifyUrl("/payment/alipayNotifyUrl");//支付回调
+		payment.setBusinessNotifyUrl("http://www.baidu.com");//站内回调
+		payment.setCreateDate(new Date());
+		payment.setUpdateDate(new Date());
+		payment.setAccountId(1000l);
+		String result = weiXinBusiness.getPayment(payment, type, request, response);
+		return result;
+
+	}
 	/**
 	 * 阿里云支付回调
 	 * @return
-	 * @throws Exception 
+	 * @throws Exception
+	 */
 	@ApiOperation(value = "阿里云支付回调", notes = "阿里云支付回调")
 	@RequestMapping(value = "/alipayNotifyUrl", method = {RequestMethod.GET,RequestMethod.POST})
-	public @ResponseBody String alipayNotifyUrl(HttpServletRequest request,HttpSession session) {
+	public @ResponseBody String alipayNotifyUrl(
+			HttpServletRequest request, HttpSession session) {
 		String pm = alipayBusiness.getNotifyUrl(request);
+		return pm;
+	}
+
+	@ApiOperation(value = "微信支付统一下单", notes = "微信支付统一下单")
+	@RequestMapping("/weXinUnifiedOrder")
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="orderId",value="订单id",dataType="string", paramType = "query"),
+			@ApiImplicitParam(name="type",value="微信支付类型，1公众号支付，2扫码支付，3app支付,4h5支付，5小程序支付",dataType="string", paramType = "query"),
+	})
+	//@ResponseBody
+	public String weXinUnifiedOrder(
+			@RequestParam("orderId")String orderId,
+			@RequestParam(value="type",required = false,defaultValue = "1")Integer type,
+			HttpServletRequest request,
+			HttpServletResponse response
+	) throws Exception {
+		Payment payment=new Payment();
+		payment.setSubject("测试");
+		payment.setBody("测试");
+		String outtradeno = "ww" + DateUtil.getOrdersTime();
+		payment.setOrderNumber(outtradeno);
+		payment.setMoney(0.01);
+		payment.setStatus(1);//已下单
+		payment.setType(2);//支付类型，1支付宝，2微信,3百度钱包,4Paypal,5网银
+		payment.setBusinessType(1);//业务类型，1充值，2提现，3退款
+		payment.setNotifyUrl("/payment/weiXinPayNotifyUrl");//支付回调
+		payment.setBusinessNotifyUrl("http://www.baidu.com");//站内回调
+		payment.setCreateDate(new Date());
+		payment.setUpdateDate(new Date());
+		payment.setAccountId(1000l);
+		String result = weiXinBusiness.getPayment(payment, type, request, response);
+		return result;
+
+	}
+	/**
+	 * 微信支付回调
+	 * @return
+	 * @throws Exception
+	 */
+	@ApiOperation(value = "微信支付回调", notes = "微信支付回调")
+	@RequestMapping(value = "/weiXinPayNotifyUrl", method = {RequestMethod.GET,RequestMethod.POST})
+	public @ResponseBody String weiXinPayNotifyUrl(
+			HttpServletRequest request, HttpSession session) {
+		String pm = weiXinBusiness.getNotifyUrl(request);
 		return pm;
 	}
 
@@ -184,8 +271,8 @@ public class PaymentController extends BaseController<Payment,Long>{
 		map.put("order_number", orderNumber);
 		map.put("type", type);
 		map.put("business_type", businessType);
-		map.put("businessId", businessId);
-		map.put("accountId", accountId);
+		map.put("business_id", businessId);
+		map.put("account_id", accountId);
 		map.put("create_date", createDate);
 		map.put("update_date", updateDate);
 		map.put("status", status);

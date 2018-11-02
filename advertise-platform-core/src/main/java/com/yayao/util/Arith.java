@@ -1,4 +1,6 @@
 package com.yayao.util;
+import org.apache.logging.log4j.util.Strings;
+
 import java.math.BigDecimal;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;   
@@ -105,7 +107,7 @@ public static void main(String[] args) {
 	int count2=0;
 	AtomicInteger ai = new AtomicInteger();
 	ai.getAndIncrement();
-	for (;;) {
+	/*for (;;) {
 		int ni = ai.get();
 		int next =ni+1 ;
 		boolean b=	ai.compareAndSet(ni, next);
@@ -115,7 +117,9 @@ public static void main(String[] args) {
 		System.err.println(++count2+"原始");
 		//System.out.println(b);
 		
-	}
+	}*/
+	System.err.println("----------------");
+
 	
 }
 } 

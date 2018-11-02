@@ -3,6 +3,7 @@ package com.yayao.weixin.pay;
 import com.github.binarywang.wxpay.bean.entpay.*;
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.service.WxPayService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class WeiXinEnterprisePayServiceImpl {
+    @Autowired
     private WxPayService wxPayService;
     /**
      * <pre>

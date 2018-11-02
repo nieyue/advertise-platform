@@ -175,6 +175,11 @@ const router= new Router({
           path: 'system/druid',
           name: '数据库监控',
           component: resolve=>require(['@/components/main/system/Druid'],resolve)
+        },
+        {
+          path: 'system/swagger',
+          name: 'API接口管理（swagger）',
+          component: resolve=>require(['@/components/main/system/Swagger'],resolve)
         }
       ]
     }

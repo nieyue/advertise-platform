@@ -135,6 +135,10 @@
                         <Icon type="ios-man" />
                         <span>数据库监控</span>
                     </MenuItem>
+                    <MenuItem  name="/main/system/swagger">
+                        <Icon type="ios-man" />
+                        <span>API接口管理(swagger)</span>
+                    </MenuItem>
                 </Submenu>
             </Menu>
         </Sider>
