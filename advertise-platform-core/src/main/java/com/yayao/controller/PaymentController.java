@@ -143,20 +143,32 @@ public class PaymentController extends BaseController<Payment,Long>{
 			HttpServletResponse response
 	) throws Exception {
 		Payment payment=new Payment();
-		payment.setSubject("测试");
-		payment.setBody("测试");
+		payment.setSubject("alipay测试");
+		payment.setBody("alipay测试");
 		String outtradeno = "ww" + DateUtil.getOrdersTime();
 		payment.setOrderNumber(outtradeno);
 		payment.setMoney(0.01);
 		payment.setStatus(1);//已下单
 		payment.setType(2);//支付类型，1支付宝，2微信,3百度钱包,4Paypal,5网银
 		payment.setBusinessType(1);//业务类型，1充值，2提现，3退款
-		payment.setNotifyUrl("/payment/alipayNotifyUrl");//支付回调
+		payment.setNotifyUrl(projectDomainUrl+"/payment/alipayNotifyUrl");//支付回调
 		payment.setBusinessNotifyUrl("http://www.baidu.com");//站内回调
 		payment.setCreateDate(new Date());
 		payment.setUpdateDate(new Date());
 		payment.setAccountId(1000l);
-		String result = weiXinBusiness.getPayment(payment, type, request, response);
+		String result="";
+		if(type==1){
+			//当面付
+
+		}else if(type==2){
+			//app支付
+			result = alipayBusiness.getAppPayment(payment);
+		}else if(type==3){
+			//手机网站
+		}else if(type==4){
+			//电脑网站
+			result = alipayBusiness.getPcWebPayment(payment);
+		}
 		return result;
 
 	}
@@ -195,7 +207,7 @@ public class PaymentController extends BaseController<Payment,Long>{
 		payment.setStatus(1);//已下单
 		payment.setType(2);//支付类型，1支付宝，2微信,3百度钱包,4Paypal,5网银
 		payment.setBusinessType(1);//业务类型，1充值，2提现，3退款
-		payment.setNotifyUrl("/payment/weiXinPayNotifyUrl");//支付回调
+		payment.setNotifyUrl(projectDomainUrl+"/payment/weiXinPayNotifyUrl");//支付回调
 		payment.setBusinessNotifyUrl("http://www.baidu.com");//站内回调
 		payment.setCreateDate(new Date());
 		payment.setUpdateDate(new Date());

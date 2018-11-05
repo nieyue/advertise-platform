@@ -81,8 +81,8 @@ myPugin:
     myDomainName: null
   projectName: AdvertisePlatformCoreProject
   #projectDomainUrl: http://localhost:8080
-  #projectDomainUrl: http://nieyue.ngrok.xiaomiqiu.cn
-  projectDomainUrl: http://nieyue.tunnel.qydev.com
+  projectDomainUrl: http://nieyue.ngrok.xiaomiqiu.cn
+  #projectDomainUrl: http://nieyue.tunnel.qydev.com
   payCancelUrl: ${myPugin.projectDomainUrl}/payCancel.html
   paySuccessUrl: ${myPugin.projectDomainUrl}/paySuccess.html
   shiro:
