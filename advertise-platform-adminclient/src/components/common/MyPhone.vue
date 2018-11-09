@@ -134,7 +134,7 @@ export default {
         },
        
         //真实的大小
-        sliderValue:this.size*10,
+        sliderValue:this.size*8,
         isShowTitle:false,
         currentWeixinImg:this.weixinImg[0]
     }

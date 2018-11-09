@@ -189,6 +189,7 @@ var myUtils = {
 		var dayC =diffValue/day;
 		var hourC =diffValue/hour;
 		var minC =diffValue/minute;
+		var result="";
 		if(yearC>=1){
 		 result=parseInt(yearC) + "年前";
 		 }else if(monthC>=1){
@@ -217,12 +218,12 @@ var myUtils = {
 	 */
 	timeStampToDate:function(timeStamp){
 		var date = new Date(timeStamp);
-		Y = date.getFullYear() + '-';
-		M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-		D = date.getDate() + ' ';
-		h = date.getHours() + ':';
-		m = (date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()) + ':';
-		s = (date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds()); 
+		var Y = date.getFullYear() + '-';
+		var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+		var D = date.getDate() + ' ';
+		var h = date.getHours() + ':';
+		var m = (date.getMinutes()<10?'0'+date.getMinutes():date.getMinutes()) + ':';
+		var s = (date.getSeconds()<10?'0'+date.getSeconds():date.getSeconds());
 	return Y+M+D+h+m+s; 
 	},
 	/**
@@ -231,9 +232,9 @@ var myUtils = {
 	 */
 	timeStampToDayDate:function(timeStamp){
 		var date = new Date(timeStamp);
-		Y = date.getFullYear() + '-';
-		M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-		D = date.getDate();
+		var Y = date.getFullYear() + '-';
+		var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+		var D = date.getDate();
 	return Y+M+D; 
 	},
 	/**
@@ -242,8 +243,8 @@ var myUtils = {
 	 */
 	timeStampToSimpleDate:function(timeStamp){
 		var date = new Date(timeStamp);
-		M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-		D = date.getDate() + ' ';
+		var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+		var D = date.getDate() + ' ';
 	return M+D; 
 	},
    /**
@@ -551,7 +552,7 @@ var myUtils = {
 		}
 		var file=options.inputfile.get(0);
 		//console.log(file.files)
-		  photoExt=file.value.substr(file.value.lastIndexOf(".")).toLowerCase();// 获得文件后缀名
+		 var  photoExt=file.value.substr(file.value.lastIndexOf(".")).toLowerCase();// 获得文件后缀名
 		// 判断格式
 		  for (var i = 0; i < initPhotoExt.length; i++) {
 		  if(photoExt==initPhotoExt[i])	{

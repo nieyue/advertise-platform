@@ -280,7 +280,7 @@ export default {
   data () {
     return {
         //跳转微信授权
-        goWeixinauth:this.axios.defaults.baseURL+'/weixin/auth/index.html',
+        goWeixinauth:this.axios.defaults.baseURL+'/weixin/auth/index.html?accountId='+JSON.parse(this.$route.params.pathParams).accountId,
         oneCityList:this.utils.getOneCity(),
         params:{
             startNum:1,//初始化个数

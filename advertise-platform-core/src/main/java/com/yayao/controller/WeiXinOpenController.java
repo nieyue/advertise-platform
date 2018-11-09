@@ -1,10 +1,9 @@
 package com.yayao.controller;
 
-import com.yayao.util.StateResultList;
+import com.yayao.bean.Account;
+import com.yayao.bean.Media;
 import com.yayao.weixin.open.WeiXinOpenServiceImpl;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpDataCubeService;
@@ -13,7 +12,7 @@ import me.chanjar.weixin.mp.bean.datacube.WxDataCubeArticleResult;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
-import me.chanjar.weixin.open.api.impl.WxOpenMessageRouter;
+import me.chanjar.weixin.mp.bean.result.WxMpUser;
 import me.chanjar.weixin.open.bean.message.WxOpenXmlMessage;
 import me.chanjar.weixin.open.bean.result.WxOpenAuthorizerInfoResult;
 import me.chanjar.weixin.open.bean.result.WxOpenQueryAuthResult;
@@ -24,10 +23,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -140,10 +137,16 @@ public class WeiXinOpenController  {
 
 	@ApiOperation(value = "跳转授权url", notes = "跳转授权url")
 	@RequestMapping("/auth/goto_auth_url")
-	public void gotoPreAuthUrl(HttpServletRequest request, HttpServletResponse response){
+	public void gotoPreAuthUrl(HttpServletRequest request,
+							   @RequestParam("accountId") Long accountId,
+							   HttpServletResponse response){
 		//String host = request.getHeader("host");
-
-		String url = projectDomainUrl+"/weiXinOpen/auth/jump";
+		//确认当前账户
+		Account sessionAccount=(Account)request.getSession().getAttribute("account");
+		if(sessionAccount==null||(!sessionAccount.getAccountId().equals(accountId))){
+			return;
+		}
+		String url = projectDomainUrl+"/weiXinOpen/auth/jump?accountId="+accountId;
 		try {
 			url = weiXinOpenServiceImpl.getWxOpenComponentService().getPreAuthUrl(url);
 			response.sendRedirect(url);
@@ -156,11 +159,19 @@ public class WeiXinOpenController  {
 	@RequestMapping("/auth/jump")
 	@ResponseBody
 	public WxOpenQueryAuthResult jump(
-			@RequestParam("auth_code") String authorizationCode
+			@RequestParam("auth_code") String authorizationCode,
+			@RequestParam("accountId") Long accountId
 	){
 		try {
 			WxOpenQueryAuthResult queryAuthResult = weiXinOpenServiceImpl.getWxOpenComponentService().getQueryAuth(authorizationCode);
 			logger.info("getQueryAuth", queryAuthResult);
+			System.out.println(accountId);
+			//获取用户信息
+			WxOpenAuthorizerInfoResult ai = weiXinOpenServiceImpl.getWxOpenComponentService().
+					getAuthorizerInfo(queryAuthResult.getAuthorizationInfo().
+							getAuthorizerAppid());
+			//授权成功后添加媒体信息
+			Media media =new Media();
 			return queryAuthResult;
 		} catch (WxErrorException e) {
 			logger.error("gotoPreAuthUrl", e);

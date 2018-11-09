@@ -69,11 +69,12 @@ public class FutureTest {
                 System.out.println("end=" + endtime);
                 System.out.println("cost=" + (endtime - starttime));
                 flag=false;
+                executor.shutdown();
             }
         }
     }
     public static void main(String[] args) {
         async();
-        syn();
+        //syn();
     }
 }

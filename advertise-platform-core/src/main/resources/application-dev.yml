@@ -134,7 +134,6 @@ myPugin:
       subMchId:
       # p12证书的位置，可以指定绝对路径，也可以指定类路径（以classpath:开头）
       keyPath:
-
   qiniu:
     accessKey: dGJBFJKfsq-c74QCzTSxLAzPgcDw338-__AKWM8n
     secretKey: yTswXYndF5kVG7LrGb4mX6YqaitNDdjNIpxXIDyk

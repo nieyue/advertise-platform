@@ -105,7 +105,7 @@ import FooterBar from '@/components/common/FooterBar';
         this.axios({
           method:"post",
           url:'/tool/getVerificationCode',
-         // withCredentials: true,  
+          withCredentials: true,  
           responseType:'blob'
           })
         .then((res)=>{

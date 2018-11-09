@@ -1,0 +1,1 @@
+package com.yayao;public class TestCompiler {public static void disply() {	System.out.println("Hello");}public static void main(String[] args){disply();}}

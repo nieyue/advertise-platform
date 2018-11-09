@@ -19,7 +19,25 @@
 <!--<script>
     location.href="/weiXinOpen/auth/goto_auth_url"
 </script>-->
-<iframe src="/weiXinOpen/auth/goto_auth_url" frameborder="0"
-        style="padding: 0px; width: 100%; height: 100%;"></iframe>
+<iframe id="iframe" src="" frameborder="0"
+style="padding: 0px; width: 100%; height: 100%;"></iframe>
+<script>
+    function getQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  decodeURIComponent(r[2]); return null;
+        //if(r!=null)return  unescape(r[2]); return null;
+    }
+    var accountId=getQueryString("accountId");
+    if(accountId!=null&&accountId!=""){
+        var iframe=document.querySelector("#iframe");
+        var url="/weiXinOpen/auth/goto_auth_url"+"?accountId="+accountId;
+        iframe.setAttribute("src",url);
+    }else{
+        window.close();
+    }
+
+</script>
 </body>
 </html>
