@@ -1,5 +1,7 @@
 package com.yayao.util;
 
+import java.util.Date;
+
 /**
  * Twitter_Snowflake<br>
  * SnowFlake的结构如下(每部分用-分开):<br>
@@ -17,7 +19,7 @@ public class SnowflakeIdWorker {
     // ==============================Fields===========================================
     /** 开始时间截 (2015-01-01) */
     private final long twepoch = 1420041600000L;
-    //private final long twepoch = new Date("2017/1/1").getTime();
+    //private final long twepoch = new Date("2018/1/1").getTime();
 
     /** 机器id所占的位数 */
     private final long workerIdBits = 5L;

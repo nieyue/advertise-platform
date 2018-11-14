@@ -88,7 +88,7 @@
       </div>
     </Modal>
     <!--修改end -->
-      <Table border  :current="params.currentPage" :columns='rolePermissionColumns' :data='rolePermissionList' ref='table' size="small"></Table>
+      <Table border height="500"  :current="params.currentPage" :columns='rolePermissionColumns' :data='rolePermissionList' ref='table' size="small"></Table>
     </div>
     
   </div>
@@ -160,6 +160,7 @@ export default {
 	    rolePermissionColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -168,11 +169,13 @@ export default {
         },
         {
           title: '角色权限id',
+          minWidth:100,
           key: 'rolePermissionId',
           align:'center'
         },
         {
             title:'角色权限范围',
+            minWidth:100,
             key:'region',
             align:'center',
                 render: (h, params) => {
@@ -187,6 +190,7 @@ export default {
         },
         {
             title:'角色权限类型',
+            minWidth:100,
             key:'permission.type',
             align:'center',
             render: (h, params) => {
@@ -200,21 +204,24 @@ export default {
             }
         },
         {
-        	title:'权限管理名',
+          title:'权限管理名',
+          minWidth:100,
             align:'center',
             render: (h, params) => {
                 return  h('span',params.row.permission.managerName);
             }
         },
         {
-        	title:'角色权限名',
+          title:'角色权限名',
+          minWidth:100,
             align:'center',
             render: (h, params) => {
                 return  h('span',params.row.permission.name);
             }
         },
         {
-        	title:'路由',
+          title:'路由',
+          minWidth:100,
             align:'center',
             render: (h, params) => {
                 return  h('span',params.row.permission.route);
@@ -222,12 +229,14 @@ export default {
         },
         {
           title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
           align:'center',
           render: (h, params) => {

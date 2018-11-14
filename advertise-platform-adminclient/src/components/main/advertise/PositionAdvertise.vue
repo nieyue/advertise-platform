@@ -223,7 +223,7 @@ export default {
 	  positionAdvertiseColumns: [
         {
           title: '序号',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -232,25 +232,25 @@ export default {
         },
         {
           title: '位置广告id',
-          width:100,
+          minWidth:100,
           key: 'positionAdvertiseId',
           align:'center'
         },
         {
           title:'账户id',
-          width:100,
+          minWidth:100,
           key:'accountId',
           align:'center'
         },
         {
           title:'广告名称',
-          width:100,
+          minWidth:100,
           key:'name',
           align:'center'
         },
         {
           title:'广告位置',
-          width:100,
+          minWidth:100,
           key:'position',
           align:'center',
           render: (h, params) => {
@@ -265,31 +265,31 @@ export default {
         },
         {
           title:'广告金额',
-          width:100,
+          minWidth:100,
           key:'consumePrice',
           align:'center'
         },
         {
           title:'实际金额',
-          width:100,
+          minWidth:100,
           key:'finalPrice',
           align:'center'
         },
         {
           title:'标题',
-          width:100,
+          minWidth:100,
           key:'title',
           align:'center'
         },
         {
           title:'作者',
-          width:100,
+          minWidth:100,
           key:'author',
           align:'center'
         },
         {
           title:'封面',
-          width:100,
+          minWidth:100,
         	key:'topImg',
           align:'center',
           render: (h, params) => {
@@ -305,13 +305,13 @@ export default {
         },
         {
           title:'原文链接',
-          width:200,
+          minWidth:200,
           key:'originUrl',
           align:'center'
         },
         {
           title:'状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -326,28 +326,28 @@ export default {
         },
         {
           title:'投放开始时间',
-          width:100,
+          minWidth:100,
           key:'startDate',
           sortable: true,
           align:'center'
         },
         {
           title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
-          width:200,
+          minWidth:200,
           key: 'action',
           fixed:'right',
           render: (h, params) => {

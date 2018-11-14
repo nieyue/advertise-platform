@@ -53,6 +53,7 @@ export default {
 	    financeRecordColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -61,11 +62,13 @@ export default {
         },
         {
           title: '财务记录id',
+          minWidth:100,
           key: 'financeRecordId',
           align:'center'
         },
         {
-        	title:'支付方式',
+          title:'支付方式',
+          minWidth:100,
             key:'method',
             align:'center',
           render: (h, params) => {
@@ -79,7 +82,8 @@ export default {
           }
         },
         {
-        	title:'支付类型',
+          title:'支付类型',
+          minWidth:100,
             key:'type',
             align:'center',
           render: (h, params) => {
@@ -93,42 +97,50 @@ export default {
           }
         },
         {
-        	title:'交易单号',
+          title:'交易单号',
+          minWidth:100,
             key:'transactionNumber',
             align:'center'
         },
         {
-        	title:'广告名称',
+          title:'广告名称',
+          minWidth:100,
             key:'advertiseName',
             align:'center'
         },
         {
-        	title:'媒体名称',
+          title:'媒体名称',
+          minWidth:100,
             key:'mediaName',
             align:'center'
         },
         {
-        	title:'金额',
+          title:'金额',
+          minWidth:100,
             key:'money',
             align:'center'
         },
         {
-        	title:'税金',
+          title:'税金',
+          minWidth:100,
             key:'tax',
             align:'center'
         },
         {
-        	title:'平台服务费',
+          title:'平台服务费',
+          minWidth:100,
             key:'brokerage',
             align:'center'
         },
         {
-        	title:'实际金额',
+          title:'实际金额',
+          minWidth:100,
             key:'realMoney',
             align:'center'
         },
        {
-        	title:'状态',
+          title:'状态',
+          minWidth:100,
             key:'status',
             align:'center',
           render: (h, params) => {
@@ -142,23 +154,27 @@ export default {
           }
         },
         {
-        	title:'广告id',
+          title:'广告id',
+          minWidth:100,
             key:'advertiseId',
             align:'center'
         },
         {
-        	title:'账户id',
+          title:'账户id',
+          minWidth:100,
             key:'accountId',
             align:'center'
         },
         {
           title:'创建时间',
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
           title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'

@@ -319,7 +319,7 @@ export default {
 	  readAdvertiseColumns: [
         {
           title: '序号',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -328,25 +328,25 @@ export default {
         },
         {
           title: '阅读广告id',
-          width:100,
+          minWidth:100,
           key: 'readAdvertiseId',
           align:'center'
         },
         {
           title: '账户id',
-          width:100,
+          minWidth:100,
           key: 'accountId',
           align:'center'
         },
         {
           title:'阅读广告名称',
-          width:100,
+          minWidth:100,
           key:'name',
           align:'center'
         },
         {
           title:'广告形式',
-          width:100,
+          minWidth:100,
           key:'type',
           align:'center',
           render: (h, params) => {
@@ -361,37 +361,37 @@ export default {
         },
         {
           title:'广告单价',
-          width:100,
+          minWidth:100,
           key:'unitPrice',
           align:'center'
         },
         {
           title:'广告预算（总额）',
-          width:100,
+          minWidth:100,
           key:'totalPrice',
           align:'center'
         },
         {
           title:'广告金额',
-          width:100,
+          minWidth:100,
           key:'consumePrice',
           align:'center'
         },
         {
           title:'质检返款',
-          width:100,
+          minWidth:100,
           key:'qualityPrice',
           align:'center'
         },
         {
           title:'实际消费',
-          width:100,
+          minWidth:100,
           key:'finalPrice',
           align:'center'
         },
         {
           title:'引导文案',
-          width:100,
+          minWidth:100,
           key:'guideContent',
           align:'center',
           render:(h,params)=>{
@@ -400,7 +400,7 @@ export default {
         },
         {
           title:'广告图片',
-          width:100,
+          minWidth:100,
         	key:'guideImg',
           align:'center',
           render: (h, params) => {
@@ -416,19 +416,19 @@ export default {
         },
         {
           title:'标题',
-          width:100,
+          minWidth:100,
           key:'title',
           align:'center'
         },
         {
           title:'作者',
-          width:100,
+          minWidth:100,
           key:'author',
           align:'center'
         },
         {
           title:'头条封面',
-          width:100,
+          minWidth:100,
         	key:'topImg',
           align:'center',
           render: (h, params) => {
@@ -444,7 +444,7 @@ export default {
         },
         {
           title:'非头条封面',
-          width:100,
+          minWidth:100,
         	key:'notopImg',
           align:'center',
           render: (h, params) => {
@@ -460,13 +460,13 @@ export default {
         },
         {
         	title:'原文链接',
-          width:200,
+          minWidth:200,
         	key:'originUrl',
           align:'center'
         },
         {
           title:'状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -481,35 +481,35 @@ export default {
         },
         {
           title:'投放开始时间',
-          width:100,
+          minWidth:100,
           key:'startDate',
           sortable: true,
           align:'center'
         },
         {
           title:'投放结束时间',
-          width:100,
+          minWidth:100,
           key:'endDate',
           sortable: true,
           align:'center'
         },
         {
           title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
-          width:200,
+          minWidth:200,
           key: 'action',
           fixed:'right',
           render: (h, params) => {

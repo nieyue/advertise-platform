@@ -161,19 +161,22 @@ export default {
 	    permissionColumns: [
             {
                 title: '序号',
-          align:'center',
-          render: (h, params) => {
-            return h('span', params.index
-            +(this.params.currentPage-1)*this.params.pageSize+this.params.startNum);
-          }
-        },
-        {
-          title: '权限id',
-          key: 'permissionId',
-          align:'center'
-        },
-        {
+                minWidth:100,
+                align:'center',
+                render: (h, params) => {
+                  return h('span', params.index
+                  +(this.params.currentPage-1)*this.params.pageSize+this.params.startNum);
+                }
+            },
+            {
+              title: '权限id',
+              minWidth:100,
+              key: 'permissionId',
+              align:'center'
+            },
+           {
             title:'权限类型',
+            minWidth:100,
             key:'type',
             align:'center',
                 render: (h, params) => {
@@ -187,28 +190,33 @@ export default {
                 }
         },
         {
-        	title:'权限管理名',
+          title:'权限管理名',
+          minWidth:100,
             key:'managerName',
             align:'center'
         },
         {
-        	title:'权限名',
+          title:'权限名',
+          minWidth:100,
             key:'name',
             align:'center'
         },
         {
-        	title:'路由',
+          title:'路由',
+          minWidth:100,
             key:'route',
             align:'center'
         },
         {
           title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
           align:'center',
           render: (h, params) => {

@@ -42,6 +42,7 @@ export default {
 	  mediaDataColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -50,26 +51,31 @@ export default {
         },
         {
           title: '媒体详细数据id',
+          minWidth:100,
           key: 'mediaDataId',
           align:'center'
         },
         {
           title:'账户id',
+          minWidth:100,
           key:'accountId',
           align:'center'
         },
          {
           title:'媒体id',
+          minWidth:100,
           key:'mediaId',
           align:'center'
         },
         {
           title:'文章标题',
+          minWidth:100,
           key:'name',
           align:'center'
         },
         {
           title:'文章位置',
+          minWidth:100,
           key:'position',
           align:'center',
           render: (h, params) => {
@@ -84,22 +90,26 @@ export default {
         },
         {
           title:'阅读数',
+          minWidth:100,
           key:'readingNumber',
           align:'center'
         },
         {
           title:'点赞数',
+          minWidth:100,
           key:'pointNumber',
           align:'center'
         },
         {
           title:'创建时间',
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
-        	title:'修改时间',
+          title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'

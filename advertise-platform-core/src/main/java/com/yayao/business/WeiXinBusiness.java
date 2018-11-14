@@ -90,6 +90,8 @@ public class WeiXinBusiness {
                     orderRequestrequest.setProductId(payment.getOrderNumber());
                     WxPayUnifiedOrderResult wxPayUnifiedOrderResult=weiXinPayServiceImpl.unifiedOrder(orderRequestrequest);
                     MyQRcode.createQrcode(wxPayUnifiedOrderResult.getCodeURL(),response.getOutputStream());
+
+
                 }else if(type.equals(3)){
                     //APP支付，返回参数
                     orderRequestrequest.setTradeType("APP");

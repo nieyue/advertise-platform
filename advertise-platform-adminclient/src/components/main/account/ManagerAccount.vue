@@ -155,7 +155,7 @@ export default {
 	    accountColumns: [
         {
           title: '序号',
-           width:100,
+           minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -164,28 +164,33 @@ export default {
         },
         {
           title: '账户id',
+          minWidth:100,
           key: 'accountId',
           align:'center'
         },
         {
-        	title:'注册手机号',
+          title:'注册手机号',
+          minWidth:100,
             key:'phone',
           align:'center'
         },
         {
-        	title:'昵称',
+          title:'昵称',
+          minWidth:100,
             key:'nickname',
           align:'center'
         },
          {
-        	title:'角色名',
+          title:'角色名',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
              return  h('span',params.row.role.name);
           }
         },
         {
-        	title:'状态',
+          title:'状态',
+          minWidth:100,
             key:'status',
           align:'center',
           render: (h, params) => {
@@ -199,23 +204,23 @@ export default {
           }
         },
         {
-        	title:'创建时间',
+          title:'创建时间',
+          minWidth:100,
           key:'createDate',
-           width:100,
           sortable: true,
           align:'center'
         },
         {
-        	title:'最后登陆时间',
+          title:'最后登陆时间',
+          minWidth:100,
           key:'loginDate',
-           width:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
-           width:200,
           align:'center',
           render: (h, params) => {
             var marginstyle="2px"

@@ -311,7 +311,7 @@ export default {
 	    accountColumns: [
         {
           title: '序号',
-           width:100,
+           minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -321,25 +321,25 @@ export default {
         {
           title: '账户id',
           key: 'accountId',
-          width:100,
+          minWidth:100,
           align:'center'
         },
         {
         	title:'注册手机号',
             key:'phone',
-            width:100,
+            minWidth:100,
           align:'center'
         },
         {
         	title:'昵称',
             key:'nickname',
-            width:100,
+            minWidth:100,
           align:'center'
         },
          {
         	title:'图像',
             key:'icon',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('img', {
@@ -355,7 +355,7 @@ export default {
         {
         	title:'性别',
             key:'sex',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             let sexvalue="";
@@ -369,7 +369,7 @@ export default {
         },
         {
         	title:'国家',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
               let country=params.row.country||'';
@@ -379,19 +379,19 @@ export default {
         {
         	title:'真实姓名',
             key:'realname',
-            width:100,
+            minWidth:100,
           align:'center'
         },
         {
         	title:'email',
             key:'email',
-            width:100,
+            minWidth:100,
           align:'center'
         },
         {
         	title:'安全等级',
             key:'auth',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             let safetyGradevalue="";
@@ -406,7 +406,7 @@ export default {
         {
         	title:'认证',
             key:'auth',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             let authvalue="";
@@ -421,13 +421,13 @@ export default {
         {
         	title:'身份证',
             key:'identityCards',
-            width:100,
+            minWidth:100,
           align:'center'
         },
         {
         	title:'手持身份证上半身照',
             key:'identityCardsHoldImg',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('img', {
@@ -443,7 +443,7 @@ export default {
         {
         	title:'身份证正面',
             key:'identityCardsFrontImg',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('img', {
@@ -459,7 +459,7 @@ export default {
            {
         	title:'身份证反面',
             key:'identityCardsFrontImg',
-            width:100,
+            minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('img', {
@@ -475,12 +475,12 @@ export default {
         {
         	title:'电话',
             key:'telephone',
-            width:100,
+            minWidth:100,
           align:'center'
         },
          {
         	title:'角色名',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span',params.row.role.name)
@@ -489,7 +489,7 @@ export default {
         {
         	title:'状态',
             key:'status',
-             width:100,
+             minWidth:100,
           align:'center',
           render: (h, params) => {
             let statusvalue="";
@@ -504,21 +504,21 @@ export default {
         {
         	title:'创建时间',
           key:'createDate',
-           width:100,
+           minWidth:100,
           sortable: true,
           align:'center'
         },
         {
         	title:'最后登陆时间',
           key:'loginDate',
-           width:100,
+           minWidth:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
           key: 'action',
-           width:200,
+           minWidth:200,
            fixed:'right',
           align:'center',
           render: (h, params) => {

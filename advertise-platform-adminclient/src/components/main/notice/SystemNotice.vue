@@ -132,6 +132,7 @@ export default {
 	    noticeColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -140,16 +141,19 @@ export default {
         },
         {
           title: '通知id',
+          minWidth:100,
           key: 'noticeId',
           align:'center'
         },
         {
-        	title:'标题',
+          title:'标题',
+          minWidth:100,
         	key:'title',
           align:'center'
         },
         {
-        	title:'封面',
+          title:'封面',
+          minWidth:100,
         	key:'imgAddress',
           align:'center',
           render: (h, params) => {
@@ -165,24 +169,27 @@ export default {
         },
         {
         	title:'内容',
+          minWidth:100,
           key:'content',
-          //width:200,
           align:'center'
         },
         {
-        	title:'创建时间',
+          title:'创建时间',
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
-        	title:'修改时间',
+          title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
           align:'center',
           render: (h, params) => {

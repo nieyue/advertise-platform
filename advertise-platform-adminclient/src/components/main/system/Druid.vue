@@ -2,7 +2,7 @@
 <template>
     <div class="body-wrap">
          <iframe :src="druidurl"  
-            frameborder="0" style="padding: 0px; width: 100%; height: 800px;"></iframe>
+            frameborder="0" style="padding: 0px; width: 100%; height: 660px;"></iframe>
     </div>
 </template>
 <script>

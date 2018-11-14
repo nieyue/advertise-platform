@@ -107,6 +107,7 @@ export default {
 	    roleColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -115,27 +116,32 @@ export default {
         },
         {
           title: '角色id',
+          minWidth:100,
           key: 'roleId',
           align:'center'
         },
         {
-        	title:'角色名称',
+          title:'角色名称',
+          minWidth:100,
         	key:'name',
           align:'center'
         },
         {
-        	title:'角色职责',
+          title:'角色职责',
+          minWidth:100,
         	key:'duty',
           align:'center'
         },
         {
-        	title:'修改时间',
+          title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
           align:'center',
           render: (h, params) => {

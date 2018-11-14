@@ -73,6 +73,24 @@ public class ToolController extends BaseController<Object,Long>{
 		return ;
 	}
 	/**
+	 * 生成二维码
+	 * @return
+	 * @throws Exception
+	 */
+	@ApiOperation(value = "生成二维码", notes = "生成二维码")
+	@RequestMapping(value = "/getQrCode", method = {RequestMethod.GET,RequestMethod.POST})
+	@ApiImplicitParams({
+			@ApiImplicitParam(name="url",value="url链接",dataType="string", paramType = "query"),
+	})
+	public void getQrCode(
+			@RequestParam("url") String url,
+			HttpSession session,
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
+		MyQRcode.createQrcode(url, response.getOutputStream());
+		return ;
+	}
+	/**
 	 * 文件增加、修改
 	 * @return
 	 * @throws IOException 

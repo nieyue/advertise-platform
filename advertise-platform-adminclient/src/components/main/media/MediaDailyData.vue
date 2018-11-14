@@ -44,68 +44,68 @@ export default {
         },
         {
           title: '媒体日数据id',
-          width:100,
+          minWidth:100,
           key: 'mediaDailyDataId',
           align:'center'
         },
         {
           title:'账户id',
-          width:100,
+          minWidth:100,
           key:'accountId',
           align:'center'
         },
          {
           title:'媒体id',
-          width:100,
+          minWidth:100,
           key:'mediaId',
           align:'center'
         },
         {
           title:'文章发布数',
-          width:100,
+          minWidth:100,
           key:'articleNumber',
           align:'center'
         },
         {
           title:'top阅读数',
-          width:100,
+          minWidth:100,
           key:'topReadingNumber',
           align:'center'
         },
         {
           title:'总阅读数',
-          width:100,
+          minWidth:100,
           key:'totalReadingNumber',
           align:'center'
         },
         {
           title:'平均阅读数',
-          width:100,
+          minWidth:100,
           key:'avgReadingNumber',
           align:'center'
         },
         {
             title:'头条阅读数',
-            width:100,
+            minWidth:100,
             key:'top1ReadingNumber',
             align:'center'
         },
         {
           title:'点赞数',
-          width:100,
+          minWidth:100,
           key:'pointNumber',
           align:'center'
         },
         {
           title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'

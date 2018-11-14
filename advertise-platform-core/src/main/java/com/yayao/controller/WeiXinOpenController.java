@@ -9,6 +9,7 @@ import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpDataCubeService;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.datacube.WxDataCubeArticleResult;
+import me.chanjar.weixin.mp.bean.datacube.WxDataCubeArticleTotal;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlOutMessage;
@@ -165,13 +166,29 @@ public class WeiXinOpenController  {
 		try {
 			WxOpenQueryAuthResult queryAuthResult = weiXinOpenServiceImpl.getWxOpenComponentService().getQueryAuth(authorizationCode);
 			logger.info("getQueryAuth", queryAuthResult);
-			System.out.println(accountId);
+			//System.out.println(accountId);
 			//获取用户信息
 			WxOpenAuthorizerInfoResult ai = weiXinOpenServiceImpl.getWxOpenComponentService().
 					getAuthorizerInfo(queryAuthResult.getAuthorizationInfo().
 							getAuthorizerAppid());
 			//授权成功后添加媒体信息
 			Media media =new Media();
+			//授权方昵称
+			media.setName(ai.getAuthorizerInfo().getNickName());
+			//授权方公众号所设置的微信号，可能为空
+			media.setAccountName(ai.getAuthorizerInfo().getAlias());
+			//授权方头像
+			media.setWechatImg(ai.getAuthorizerInfo().getHeadImg());
+			//二维码图片的URL，开发者最好自行也进行保存
+			media.setQrCode(ai.getAuthorizerInfo().getQrcodeUrl());
+			//授权,1未授权，2已授权
+			media.setAuth(2);
+			//状态，1审核中、2正常、3审核未通过
+			media.setStatus(1);
+			media.setCreateDate(new Date());
+			media.setUpdateDate(new Date());
+			media.setAccountId(accountId);
+
 			return queryAuthResult;
 		} catch (WxErrorException e) {
 			logger.error("gotoPreAuthUrl", e);
@@ -192,7 +209,8 @@ public class WeiXinOpenController  {
 	@ApiOperation(value = "获取图文群发每日数据", notes = "获取图文群发每日数据")
 	@RequestMapping("/getarticlesummary")
 	@ResponseBody
-	public List<WxDataCubeArticleResult> getarticlesummary(
+	public List<WxDataCubeArticleTotal> getarticlesummary(
+	//public List<WxDataCubeArticleResult> getarticlesummary(
 			@RequestParam String appId
 	){
 		try {
@@ -200,7 +218,8 @@ public class WeiXinOpenController  {
 			System.err.println(wxMpService.getAccessToken());
 
 			WxMpDataCubeService data = wxMpService.getDataCubeService();
-			return data.getArticleSummary(new Date("2018/8/2"),new Date("2018/8/2"));
+			return data.getArticleTotal(new Date("2018/10/8 11:11:11"),new Date("2018/10/8 11:11:11"));
+			//return data.getArticleSummary(new Date("2018/10/9"),new Date("2018/10/9"));
 		} catch (WxErrorException e) {
 			logger.error("getarticlesummary", e);
 			throw new RuntimeException(e);

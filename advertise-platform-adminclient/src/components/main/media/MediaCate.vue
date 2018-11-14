@@ -101,6 +101,7 @@ export default {
 	    mediaCateColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -109,27 +110,32 @@ export default {
         },
         {
           title: '媒体类型id',
+          minWidth:100,
           key: 'mediaCateId',
           align:'center'
         },
         {
-        	title:'媒体类型名称',
+          title:'媒体类型名称',
+          minWidth:100,
         	key:'name',
           align:'center'
         },
         {
-        	title:'媒体类型描述',
+          title:'媒体类型描述',
+          minWidth:100,
         	key:'summary',
           align:'center'
         },
         {
-        	title:'修改时间',
+          title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
+          minWidth:200,
           key: 'action',
           align:'center',
           render: (h, params) => {

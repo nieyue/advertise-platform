@@ -249,7 +249,7 @@ export default {
 	  positionMediaColumns: [
         {
           title: '序号',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -258,43 +258,43 @@ export default {
         },
         {
           title: '位置媒体id',
-          width:100,
+          minWidth:100,
           key: 'positionMediaId',
           align:'center'
         },
         {
           title:'账户id',
-          width:100,
+          minWidth:100,
           key:'accountId',
           align:'center'
         },
          {
           title:'媒体id',
-          width:100,
+          minWidth:100,
           key:'mediaId',
           align:'center'
         },
         {
           title:'位置广告id',
-          width:100,
+          minWidth:100,
           key:'positionAdvertiseId',
           align:'center'
         },
         {
           title:'媒体名称',
-          width:100,
+          minWidth:100,
           key:'mediaName',
           align:'center'
         },
         {
           title:'广告名称',
-          width:100,
+          minWidth:100,
           key:'advertiseName',
           align:'center'
         },
         {
           title:'广告位置',
-          width:100,
+          minWidth:100,
           key:'position',
           align:'center',
           render: (h, params) => {
@@ -309,31 +309,31 @@ export default {
         },
         {
           title:'广告金额',
-          width:100,
+          minWidth:100,
           key:'consumePrice',
           align:'center'
         },
         {
           title:'质检扣款',
-          width:100,
+          minWidth:100,
           key:'qualityPrice',
           align:'center'
         },
         {
             title:'广告收入',
-            width:100,
+            minWidth:100,
             key:'finalPrice',
             align:'center'
         },
         {
           title:'发布链接',
-          width:100,
+          minWidth:100,
           key:'url',
           align:'center'
         },
         {
           title:'支付状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -348,7 +348,7 @@ export default {
         },
         {
           title:'状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -363,35 +363,35 @@ export default {
         },
         {
           title:'预计发布时间',
-          width:100,
+          minWidth:100,
           key:'expectDate',
           sortable: true,
           align:'center'
         },
         {
           title:'实际发布时间',
-          width:100,
+          minWidth:100,
           key:'finalDate',
           sortable: true,
           align:'center'
         },
         {
           title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
-          width:200,
+          minWidth:200,
           key: 'action',
           fixed:'right',
           render: (h, params) => {

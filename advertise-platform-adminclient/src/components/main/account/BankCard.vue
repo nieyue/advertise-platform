@@ -128,7 +128,7 @@ export default {
 	    bankCardColumns: [
         {
           title: '序号',
-          width:80,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -138,63 +138,63 @@ export default {
         {
           title: '银行卡id',
           key: 'bankCardId',
-          width:100,
+          minWidth:100,
           align:'center'
         },
         {
         	title:'姓名',
             key:'realname',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'身份证',
             key:'identity',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'银行名',
             key:'bankName',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'银行卡卡号',
             key:'number',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'预留手机号',
             key:'phone',
-            width:200,
+            minWidth:200,
             align:'center'
         },
         {
         	title:'账户id',
             key:'accountId',
-            width:200,
+            minWidth:200,
             align:'center'
         },
         {
           title:'创建时间',
           key:'createDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
         {
           title:'修改时间',
           key:'updateDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
           key: 'action',
-          width:150,
+          minWidth:200,
           align:'center',
           fixed: 'right',
           render: (h, params) => {

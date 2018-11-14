@@ -24,6 +24,7 @@ export default {
 	    mediaCollectionColumns: [
         {
           title: '序号',
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -32,21 +33,25 @@ export default {
         },
         {
           title: '媒体收藏id',
+          minWidth:100,
           key: 'mediaCollectionId',
           align:'center'
         },
         {
           title: '媒体id',
+          minWidth:100,
           key: 'mediaId',
           align:'center'
         },
         {
           title: '账户id',
+          minWidth:100,
           key: 'accountId',
           align:'center'
         },
         {
           title:'修改时间',
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'

@@ -86,7 +86,7 @@ export default {
 	    financeColumns: [
         {
           title: '序号',
-          width:80,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -96,19 +96,19 @@ export default {
         {
           title: '财务id',
           key: 'financeId',
-          width:100,
+          minWidth:100,
           align:'center'
         },
          {
         	title:'账户id',
             key:'accountId',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'安全密码',
             key:'password',
-             width:100,
+             minWidth:100,
             align:'center',
           render: (h, params) => {
             return h('span','*******')
@@ -117,69 +117,69 @@ export default {
         {
         	title:'余额',
             key:'money',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'充值金额',
             key:'recharge',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'消费金额',
             key:'consume',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'收入金额',
             key:'income',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'提现金额',
             key:'withdrawals',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'退款金额',
             key:'refund',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'冻结金额',
             key:'frozen',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'赠送金钱',
             key:'baseProfit',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
           title:'创建时间',
           key:'createDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
         {
           title:'修改时间',
           key:'updateDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
           key: 'action',
-          width:150,
+          minWidth:200,
           align:'center',
           fixed: 'right',
           render: (h, params) => {

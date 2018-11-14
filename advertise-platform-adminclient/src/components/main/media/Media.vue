@@ -378,7 +378,7 @@ export default {
 	    mediaColumns: [
         {
           title: '序号',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -387,25 +387,25 @@ export default {
         },
         {
           title: '媒体id',
-          width:100,
+          minWidth:100,
           key: 'mediaId',
           align:'center'
         },
         {
         	title:'媒体名称',
-          width:100,
+          minWidth:100,
         	key:'name',
           align:'center'
         },
         {
         	title:'媒体账号',
-          width:100,
+          minWidth:100,
         	key:'accountName',
           align:'center'
         },
         {
           title:'微信头像',
-          width:100,
+          minWidth:100,
         	key:'wechatImg',
           align:'center',
           render: (h, params) => {
@@ -421,7 +421,7 @@ export default {
         },
         {
           title:'二维码',
-          width:100,
+          minWidth:100,
         	key:'qrCode',
           align:'center',
           render: (h, params) => {
@@ -437,13 +437,13 @@ export default {
         },
         {
         	title:'粉丝数',
-          width:100,
+          minWidth:100,
         	key:'funs',
           align:'center'
         },
         {
           title:'粉丝截图',
-          width:100,
+          minWidth:100,
         	key:'funsImg',
           align:'center',
           render: (h, params) => {
@@ -459,7 +459,7 @@ export default {
         },
         {
           title:'用户属性',
-          width:100,
+          minWidth:100,
         	key:'userImg',
           align:'center',
           render: (h, params) => {
@@ -475,43 +475,43 @@ export default {
         },
         {
         	title:'阅读量',
-          width:100,
+          minWidth:100,
         	key:'readingNumber',
           align:'center'
         },
         {
         	title:'性别男比例,单位%',
-          width:100,
+          minWidth:100,
         	key:'sexManScale',
           align:'center'
         },
         {
         	title:'性别女比例,单位%',
-          width:100,
+          minWidth:100,
         	key:'sexWomanScale',
           align:'center'
         },
         {
         	title:'粉丝top1地址',
-          width:100,
+          minWidth:100,
         	key:'funsTop1Address',
           align:'center'
         },
         {
         	title:'粉丝top2地址',
-          width:100,
+          minWidth:100,
         	key:'funsTop2Address',
           align:'center'
         },
         {
         	title:'粉丝top3地址',
-          width:100,
+          minWidth:100,
         	key:'funsTop3Address',
           align:'center'
         },
         {
         	title:'授权',
-          width:100,
+          minWidth:100,
           key:'auth',
           align:'center',
           render: (h, params) => {
@@ -526,7 +526,7 @@ export default {
         },
         {
         	title:'是否接单',
-          width:100,
+          minWidth:100,
           key:'takeOrder',
           align:'center',
           render: (h, params) => {
@@ -541,31 +541,31 @@ export default {
         },
         {
         	title:'多图文头条报价',
-          width:100,
+          minWidth:100,
         	key:'top1Price',
           align:'center'
         },
         {
         	title:'多图文二条报价',
-          width:100,
+          minWidth:100,
         	key:'top2Price',
           align:'center'
         },
         {
         	title:'多图文3-N条报价',
-          width:100,
+          minWidth:100,
         	key:'top3nPrice',
           align:'center'
         },
         {
         	title:'单图文报价',
-          width:100,
+          minWidth:100,
         	key:'singlePrice',
           align:'center'
         },
         {
         	title:'状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -580,21 +580,21 @@ export default {
         },
         {
         	title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
-          width:200,
+          minWidth:200,
           key: 'action',
           fixed:'right',
           render: (h, params) => {

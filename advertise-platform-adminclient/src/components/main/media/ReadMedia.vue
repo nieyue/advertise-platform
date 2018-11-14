@@ -235,7 +235,7 @@ export default {
 	  readMediaColumns: [
         {
           title: '序号',
-          width:100,
+          minWidth:100,
           align:'center',
           render: (h, params) => {
             return h('span', params.index
@@ -244,37 +244,37 @@ export default {
         },
         {
           title: '阅读媒体id',
-          width:100,
+          minWidth:100,
           key: 'readMediaId',
           align:'center'
         },
         {
           title:'账户id',
-          width:100,
+          minWidth:100,
           key:'accountId',
           align:'center'
         },
         {
           title:'媒体id',
-          width:100,
+          minWidth:100,
           key:'mediaId',
           align:'center'
         },
         {
           title:'阅读广告id',
-          width:100,
+          minWidth:100,
           key:'readAdvertiseId',
           align:'center'
         },
         {
           title:'阅读媒体名称',
-          width:100,
+          minWidth:100,
           key:'name',
           align:'center'
         },
         {
           title:'广告位置',
-          width:100,
+          minWidth:100,
           key:'position',
           align:'center',
           render: (h, params) => {
@@ -289,49 +289,49 @@ export default {
         },
         {
           title:'预估阅读量',
-          width:100,
+          minWidth:100,
           key:'expectReadingNumber',
           align:'center'
         },
         {
           title:'实际阅读量',
-          width:100,
+          minWidth:100,
           key:'finalReadingNumber',
           align:'center'
         },
         {
           title:'广告单价',
-          width:100,
+          minWidth:100,
           key:'unitPrice',
           align:'center'
         },
         {
           title:'广告金额',
-          width:100,
+          minWidth:100,
           key:'consumePrice',
           align:'center'
         },
         {
           title:'质检返款',
-          width:100,
+          minWidth:100,
           key:'qualityPrice',
           align:'center'
         },
         {
           title:'实际消费',
-          width:100,
+          minWidth:100,
           key:'finalPrice',
           align:'center'
         },
         {
           title:'发布链接',
-          width:100,
+          minWidth:100,
           key:'url',
           align:'center'
         },
         {
           title:'状态',
-          width:100,
+          minWidth:100,
           key:'status',
           align:'center',
           render: (h, params) => {
@@ -346,35 +346,35 @@ export default {
         },
         {
           title:'预计发布时间',
-          width:100,
+          minWidth:100,
           key:'expectDate',
           sortable: true,
           align:'center'
         },
         {
           title:'实际发布时间',
-          width:100,
+          minWidth:100,
           key:'finalDate',
           sortable: true,
           align:'center'
         },
         {
           title:'创建时间',
-          width:100,
+          minWidth:100,
           key:'createDate',
           sortable: true,
           align:'center'
         },
         {
         	title:'修改时间',
-          width:100,
+          minWidth:100,
           key:'updateDate',
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
-          width:200,
+          minWidth:200,
           key: 'action',
           fixed:'right',
           render: (h, params) => {

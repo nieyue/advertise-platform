@@ -146,69 +146,69 @@ export default {
         {
           title: '第三方信息id',
           key: 'thirdInfoId',
-          width:100,
+          minWidth:100,
           align:'center'
         },
         {
         	title:'微信uuid',
             key:'wxUuid',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'微信号',
             key:'wechat',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'qq号',
             key:'qq',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'微博号',
             key:'microblog',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'支付宝号',
             key:'alipay',
-            width:200,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'微信openid，多个',
             key:'wxOpenid',
-            width:200,
+            minWidth:200,
             align:'center'
         },
         {
         	title:'账户id',
             key:'accountId',
-            width:200,
+            minWidth:100,
             align:'center'
         },
         {
           title:'创建时间',
           key:'createDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
         {
           title:'修改时间',
           key:'updateDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
           key: 'action',
-          width:150,
+          minWidth:200,
           align:'center',
           fixed: 'right',
           render: (h, params) => {

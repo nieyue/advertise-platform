@@ -138,63 +138,63 @@ export default {
         {
           title: '公司id',
           key: 'companyId',
-          width:100,
+          minWidth:100,
           align:'center'
         },
         {
         	title:'名称',
             key:'name',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'行业',
             key:'industry',
-             width:100,
+             minWidth:100,
             align:'center'
         },
         {
         	title:'公司地址',
             key:'address',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'公司网址',
             key:'website',
-            width:100,
+            minWidth:100,
             align:'center'
         },
         {
         	title:'公司描述',
             key:'description',
-            width:200,
+            minWidth:200,
             align:'center'
         },
         {
         	title:'账户id',
             key:'accountId',
-            width:200,
+            minWidth:200,
             align:'center'
         },
         {
           title:'创建时间',
           key:'createDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
         {
           title:'修改时间',
           key:'updateDate',
-          width:100,
+          minWidth:100,
           sortable: true,
           align:'center'
         },
 				{
           title: '操作',
           key: 'action',
-          width:150,
+          minWidth:200,
           align:'center',
           fixed: 'right',
           render: (h, params) => {

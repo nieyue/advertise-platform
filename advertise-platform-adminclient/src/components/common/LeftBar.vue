@@ -1,7 +1,7 @@
 <!-- 左侧导航-->
 <template>
    <Sider >
-            <Menu class="leftbar-wrap" :class="menuitemClasses" :active-name="menuActiveName"  @on-select="menuSelect" theme="dark">
+            <Menu class="leftbar-wrap" :class="menuitemClasses" :active-name="menuActiveName"  @on-select="menuSelect" theme="light">
                 <Submenu name="config">
                     <template slot="title">
                         <Icon type="ios-settings" />
