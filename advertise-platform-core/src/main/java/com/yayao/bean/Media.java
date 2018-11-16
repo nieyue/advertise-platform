@@ -29,6 +29,11 @@ public class Media implements Serializable{
 	@TableId("media_id")
 	private Long mediaId;
 	/**
+	 * appId
+	 */
+	@ApiModelProperty(value="appId",example="appId")
+	private String appId;
+	/**
 	 * 媒体名称
 	 */
 	@ApiModelProperty(value="媒体名称",example="媒体名称")

@@ -260,7 +260,7 @@ export default {
                       if (res.data.code === 200) {
                         $this.$Message.success(res.data.msg)
                         if(typeof p.success=='function'){
-                            p.success();
+                            p.success(res);
                         }else{
                             $this.getList()
                         }

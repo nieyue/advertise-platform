@@ -513,10 +513,25 @@ export default {
                   }
                 }
               }, '删除');
+            var varhh3=  h('Button', {
+                props: {
+                  type: 'info',
+                  size: 'small'
+                },
+                style: {
+                  margin: '5px'
+                },
+                on: {
+                  click: () => {
+                    this.updateAuthAccount(params.row)
+                  }
+                }
+              }, '数据更新');
                 var s=h("div","");
                 s=h("div",[
                 h("div",[
                     varhh1,
+                    varhh3
                 ]),
                 ]);
             return s;
@@ -705,6 +720,34 @@ export default {
       url:'/media/delete',
       requestObject:'deleteMedia'
     })
+    },
+    //数据更新
+    updateAuthAccount(params){
+    /**
+     * post发送请求
+     * $this  vue组件
+     * p.url 修改url
+     * p.title 名称
+     * p.content 请求内容
+     * p.requestObject 请求参数对象
+     * p.success 成功回调
+     */
+    this.updateAuthAccountRequestObject={
+      accountId:this.business.getAccount().accountId,
+      mediaId:params.mediaId,
+    }
+      this.axiosbusiness.post(this,
+      {url:'/weiXinOpen/update/authAccount',
+      title:'数据更新',
+      content:'确定获取最新数据？',
+      requestObject:'updateAuthAccountRequestObject',
+      success:(res)=>{
+        if(res.data.msg==200){
+          this.media=res.data.data[0]
+        }
+      }
+      }
+      );
     }
   },
    watch: {

@@ -42,6 +42,7 @@ public class MediaController extends BaseController<Media,Long> {
 	 */
 	@ApiOperation(value = "媒体列表", notes = "媒体分页浏览")
 	@ApiImplicitParams({
+		@ApiImplicitParam(name="appId",value="appId",dataType="string", paramType = "query"),
 		@ApiImplicitParam(name="readingNumber",value="阅读量",dataType="long", paramType = "query"),
 		@ApiImplicitParam(name="sexManScale",value="性别男比例,单位%",dataType="double", paramType = "query"),
 		@ApiImplicitParam(name="sexWomanScale",value="性别女比例,单位%",dataType="double", paramType = "query"),
@@ -60,6 +61,7 @@ public class MediaController extends BaseController<Media,Long> {
 	  })
 	@RequestMapping(value = "/list", method = {RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody StateResultList<List<Media>> browsePagingMedia(
+			@RequestParam(value="appId",required=false)String appId,
 			@RequestParam(value="readingNumber",required=false)Long readingNumber,
 			@RequestParam(value="sexManScale",required=false)Double sexManScale,
 			@RequestParam(value="sexWomanScale",required=false)Double sexWomanScale,
@@ -77,6 +79,7 @@ public class MediaController extends BaseController<Media,Long> {
 			@RequestParam(value="orderWay",required=false,defaultValue="desc") String orderWay)  {
 			Wrapper<Media> wrapper=new EntityWrapper<>();
 		 	Map<String,Object> map=new HashMap<>();
+		 	map.put("app_id", appId);
 		 	map.put("reading_number", readingNumber);
 		 	map.put("sex_man_scale", sexManScale);
 		 	map.put("sex_woman_scale", sexWomanScale);
@@ -141,6 +144,7 @@ public class MediaController extends BaseController<Media,Long> {
 	 */
 	@ApiOperation(value = "媒体数量", notes = "媒体数量查询")
 	@ApiImplicitParams({
+			@ApiImplicitParam(name="appId",value="appId",dataType="string", paramType = "query"),
 			@ApiImplicitParam(name="readingNumber",value="阅读量",dataType="long", paramType = "query"),
 			@ApiImplicitParam(name="sexManScale",value="性别男比例,单位%",dataType="double", paramType = "query"),
 			@ApiImplicitParam(name="sexWomanScale",value="性别女比例,单位%",dataType="double", paramType = "query"),
@@ -155,6 +159,7 @@ public class MediaController extends BaseController<Media,Long> {
 	})
 	@RequestMapping(value = "/count", method = {RequestMethod.GET,RequestMethod.POST})
 	public @ResponseBody StateResultList<List<Integer>> count(
+			@RequestParam(value="appId",required=false)String appId,
 			@RequestParam(value="readingNumber",required=false)Long readingNumber,
 			@RequestParam(value="sexManScale",required=false)Double sexManScale,
 			@RequestParam(value="sexWomanScale",required=false)Double sexWomanScale,
@@ -169,6 +174,7 @@ public class MediaController extends BaseController<Media,Long> {
 			HttpSession session)  {
 		Wrapper<Media> wrapper=new EntityWrapper<>();
 	 	Map<String,Object> map=new HashMap<>();
+		map.put("app_id", appId);
 		map.put("reading_number", readingNumber);
 		map.put("sex_man_scale", sexManScale);
 		map.put("sex_woman_scale", sexWomanScale);

@@ -256,6 +256,7 @@ CREATE TABLE media_cate_tb(
 #创建阅读媒体表
 CREATE TABLE media_tb(
   media_id bigint(20) NOT NULL AUTO_INCREMENT COMMENT '媒体id',
+  appId varchar(255)  COMMENT 'appId',
   name varchar(255)  COMMENT '媒体名称',
   account_name varchar(255)  COMMENT '媒体账号',
   wechat_img varchar(255) COMMENT '微信头像',
@@ -281,6 +282,7 @@ CREATE TABLE media_tb(
   media_cate_id bigint(20) COMMENT '媒体类型id,外键',
   account_id bigint(20) COMMENT '账户id,外键',
   PRIMARY KEY (media_id),
+  INDEX INDEX_APPID (appId) USING BTREE,
   INDEX INDEX_READINGNUMBER (reading_number) USING BTREE,
   INDEX INDEX_SEXMANSCALE (sex_man_scale) USING BTREE,
   INDEX INDEX_SEXWOMANSCALE (sex_woman_scale) USING BTREE,
