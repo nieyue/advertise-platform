@@ -51,7 +51,7 @@ public class MediaController extends BaseController<Media,Long> {
 		@ApiImplicitParam(name="funsTop3Address",value="粉丝top3地址",dataType="string", paramType = "query"),
 		@ApiImplicitParam(name="auth",value="授权,1未授权，2已授权",dataType="int", paramType = "query"),
 		@ApiImplicitParam(name="takeOrder",value="是否接单,1是，2否",dataType="int", paramType = "query"),
-		@ApiImplicitParam(name="status",value="状态，1审核中、2正常、3审核未通过",dataType="int", paramType = "query"),
+		@ApiImplicitParam(name="status",value="状态，1审核中、2正常、3审核未通过、4异常",dataType="int", paramType = "query"),
 		@ApiImplicitParam(name="mediaCateId",value="媒体类型id",dataType="long", paramType = "query"),
 		@ApiImplicitParam(name="accountId",value="账户id",dataType="long", paramType = "query"),
 	    @ApiImplicitParam(name="pageNum",value="页头数位",dataType="int", paramType = "query",defaultValue="1"),
@@ -153,7 +153,7 @@ public class MediaController extends BaseController<Media,Long> {
 			@ApiImplicitParam(name="funsTop3Address",value="粉丝top3地址",dataType="string", paramType = "query"),
 			@ApiImplicitParam(name="auth",value="授权,1未授权，2已授权",dataType="int", paramType = "query"),
 			@ApiImplicitParam(name="takeOrder",value="是否接单,1是，2否",dataType="int", paramType = "query"),
-			@ApiImplicitParam(name="status",value="状态，1审核中、2正常、3审核未通过",dataType="int", paramType = "query"),
+			@ApiImplicitParam(name="status",value="状态，1审核中、2正常、3审核未通过、4异常",dataType="int", paramType = "query"),
 			@ApiImplicitParam(name="mediaCateId",value="媒体类型id",dataType="long", paramType = "query"),
 			@ApiImplicitParam(name="accountId",value="账户id",dataType="long", paramType = "query"),
 	})

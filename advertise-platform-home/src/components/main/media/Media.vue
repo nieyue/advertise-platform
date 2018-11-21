@@ -156,7 +156,7 @@
               <Option v-for="item in mediaCateList" :value="item.mediaCateId" :key="item.mediaCateId">{{ item.name }}</Option>
           </Select>
         </FormItem>
-        <FormItem prop="name" label="媒体名称:">
+       <!--  <FormItem prop="name" label="媒体名称:">
           <Input type="text" v-model="updateMedia.name" placeholder="媒体名称">
           </Input>
         </FormItem>
@@ -183,7 +183,7 @@
         <FormItem prop="funs" label="粉丝数:">
           <Input type="text" v-model="updateMedia.funs" placeholder="粉丝数">
           </Input>
-        </FormItem>
+        </FormItem> -->
         <FormItem prop="funsImg" label="粉丝截图(上传或者填写):">
             <my-upload :defaultUpload="updateMedia.funsImg" @uploadList="getUpdateFunsImg"></my-upload> 
             <div>
@@ -200,10 +200,10 @@
                 <img :src="updateMedia.userImg"  style='height:300px;width:200px;'alt="">
             </div>
         </FormItem>
-        <FormItem prop="readingNumber" label="阅读量:">
+       <!--  <FormItem prop="readingNumber" label="阅读量:">
           <Input type="text" v-model="updateMedia.readingNumber" placeholder="阅读量">
           </Input>
-        </FormItem>
+        </FormItem> -->
         <FormItem prop="sexManScale" label="性别男比例,单位%:">
           <InputNumber  :max="100" :min="0" :step="0.01" style="width:180px" v-model="updateMedia.sexManScale"
             :formatter="value => `${value}%`"
@@ -577,13 +577,13 @@ export default {
       this.updateMedia.wechatImg=data[0].url
     },
     getUpdateQrCode(data){
-      this.addMedia.qrCode=data[0].url
+      this.updateMedia.qrCode=data[0].url
     },
     getUpdateFunsImg(data){
-      this.addMedia.funsImg=data[0].url
+      this.updateMedia.funsImg=data[0].url
     },
     getUpdateUserImg(data){
-      this.addMedia.userImg=data[0].url
+      this.updateMedia.userImg=data[0].url
     },
     //获取列表
    getMediaCateList () {

@@ -129,9 +129,9 @@ public class Media implements Serializable{
 	@ApiModelProperty(value="单图文报价",example="单图文报价")
 	private Double singlePrice;
 	/**
-	 * 状态，1审核中、2正常、3审核未通过
+	 * 状态，1审核中、2正常、3审核未通过、4异常
 	 */
-	@ApiModelProperty(value="状态，1审核中、2正常、3审核未通过",example="状态，1审核中、2正常、3审核未通过")
+	@ApiModelProperty(value="状态，1审核中、2正常、3审核未通过、4异常",example="状态，1审核中、2正常、3审核未通过、4异常")
 	private Integer status;
 	/**
 	 *创建时间

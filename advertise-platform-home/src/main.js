@@ -35,6 +35,21 @@ axios.defaults.baseURL="http://nieyue.ngrok.xiaomiqiu.cn";
 axios.defaults.headers["Content-Type"]="application/x-www-form-urlencoded";
 //默认为baseURL，
 axios.defaults.imgURL=""||axios.defaults.baseURL;
+// 添加响应拦截器
+axios.interceptors.response.use(function (response) {
+  //console.log(router)
+  // 没登陆
+  if(response.data.code==40004){
+    if(router.history.current.path.indexOf("main")>-1){
+      router.push("/")
+    }
+  }
+  return response;
+}, function (error) {
+  // 对响应错误做点什么
+  return Promise.reject(error);
+});
+
 Vue.prototype.echarts=echarts
 Vue.prototype.Qs=Qs
 Vue.prototype.utils=utils
@@ -61,6 +76,7 @@ Vue.prototype.isSuperAdmin=false
 Vue.prototype.pathParams={
   currentPage:1,//当前页
 }
+
 new Vue({
   el: '#app',
   router,

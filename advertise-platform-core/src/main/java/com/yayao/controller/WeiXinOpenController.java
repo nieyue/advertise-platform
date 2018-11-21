@@ -298,7 +298,7 @@ public class WeiXinOpenController  {
 			mediaList.add(media);
 			return ResultUtil.getSlefSRSuccessList(mediaList);
 		} catch (WxErrorException e) {
-			return ResultUtil.getSlefSRFailList(mediaList);
+			throw new CommonRollbackException(e.getError().getErrorMsg());
 		}
 	}
 	@ApiOperation(value = "获取公众号账户信息", notes = "获取公众号账户信息")
@@ -309,7 +309,7 @@ public class WeiXinOpenController  {
 			return weiXinOpenServiceImpl.getWxOpenComponentService().getAuthorizerInfo(appId);
 		} catch (WxErrorException e) {
 			logger.error("getAuthorizerInfo", e);
-			throw new RuntimeException(e);
+			throw new CommonRollbackException(e.getError().getErrorMsg());
 		}
 	}
 	@ApiOperation(value = "获取图文群发每日数据", notes = "获取图文群发每日数据")
@@ -328,7 +328,7 @@ public class WeiXinOpenController  {
 			//return data.getArticleSummary(new Date("2018/10/9"),new Date("2018/10/9"));
 		} catch (WxErrorException e) {
 			logger.error("getarticlesummary", e);
-			throw new RuntimeException(e);
+			throw new CommonRollbackException(e.getError().getErrorMsg());
 		}
 	}
 }
