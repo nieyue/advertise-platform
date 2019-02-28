@@ -44,6 +44,7 @@ import FooterBar from '@/components/common/FooterBar';
       FooterBar
     },
     created(){
+    
     },
     data () {
       return {

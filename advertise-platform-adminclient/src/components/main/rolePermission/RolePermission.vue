@@ -158,6 +158,7 @@ export default {
 	    permissionList: [],
 	    rolePermissionList: [],
 	    rolePermissionColumns: [
+        
         {
           title: '序号',
           minWidth:100,

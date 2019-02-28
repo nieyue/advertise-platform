@@ -324,7 +324,7 @@ public class WeiXinOpenController  {
 			System.err.println(wxMpService.getAccessToken());
 			WxMpDataCubeService data = wxMpService.getDataCubeService();
 			//return data.getArticleTotal(new Date("2018/10/8 11:11:11"),new Date("2018/10/8 11:11:11"));
-			return data.getArticleTotal(DateUtil.getFirstToDay(new Date(),-8), DateUtil.getFirstToDay(new Date(),-1));
+			return data.getArticleTotal(DateUtil.getFirstToDay(new Date(),-9), DateUtil.getFirstToDay(new Date(),-9));
 			//return data.getArticleSummary(new Date("2018/10/9"),new Date("2018/10/9"));
 		} catch (WxErrorException e) {
 			logger.error("getarticlesummary", e);
