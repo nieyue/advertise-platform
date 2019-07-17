@@ -22,7 +22,7 @@
               <a class="footer-bar-link" href="https://weibo.com/">新浪微博</a>
             </div>
             <div class="footer-bar-line-wrap">
-              <div>Copyright © 2018 雅耀（湖南）科技有限公司 版权所有   湘ICP备16000397号</div>
+              <div>Copyright © 2018 雅耀（湖南）科技有限公司 版权所有   <a class="footer-bar-link" href="http://www.beian.miit.gov.cn">湘ICP备16000397号</a></div>
             </div>
         </div>
     </div>

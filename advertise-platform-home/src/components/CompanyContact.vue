@@ -7,7 +7,7 @@
       <Card  style="margin:102px auto;width:800px;font-size:1.8rem;">
             <div style="width:770px;height:300px;" id="LBSMAP"></div>
             <br/>
-            <div><Alert>公司地址：湖南省长沙市岳麓区麓谷企业广场E8栋3楼</Alert></div>
+            <div><Alert>公司地址：湖南省长沙市岳麓区麓谷企业广场E8栋一单元P楼</Alert></div>
             <div><Alert type="success"><div style="display:inline-block;vertical-align:45px;margin-right:20px;">微信公众号：雅耀公司</div><img style="width:100px;height:100px;" src="/static/yayaogongzhonghao.jpg"/></Alert></div>
       </Card>
       <footer-bar></footer-bar>

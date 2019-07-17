@@ -4,7 +4,8 @@
     <div class="topbar">
         <div class="topbar-left">
            <img src="/static/logo.jpg" style="width:80px;height:80px;"/>
-            <span class="topbar-left-title">雅耀广告平台</span>
+            <span class="topbar-left-title">雅耀湖南科技有限公司</span>
+            <!-- <span class="topbar-left-title">雅耀广告平台</span> -->
         </div>
         <div class="topbar-nav" v-if="!islogin">
           <a v-for="nav in navs" @click="navclick(nav)" :style="{color:nav.href==currentnav?'#4cb5ff':'#000'}">{{nav.value}}</a>
