@@ -16,6 +16,12 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+## puppeteer
+```
+npm config set puppeteer_download_host=https://npm.taobao.org/mirrors
+npm install puppeteer --save
+
+```
 ```
 ## 预加载
 ```

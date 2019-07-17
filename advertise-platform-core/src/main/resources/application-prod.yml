@@ -90,7 +90,7 @@ myPugin:
       #微信公众号或者小程序等的appid
       appId: wx4d2cb896c1256cbe
       #微信公众号或者小程序等的secret
-      secret: bf1779eb5d8ecf362ed21a9d736b3571
+      secret: fc1eeae1ae1c69caa68d87d5e55f7659
     pay:
       #微信公众号或者小程序等的appid
       appId: wx4d2cb896c1256cbe

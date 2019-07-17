@@ -16,7 +16,7 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "prerender-spa-plugin": "^3.4.0",
-    "puppeteer": "^1.8.0",
+    "puppeteer": "^1.18.1",
     "swiper": "^4.4.1",
     "vue": "^2.5.17",
     "vue-axios": "^2.1.3",

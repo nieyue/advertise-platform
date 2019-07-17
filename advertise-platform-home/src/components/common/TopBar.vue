@@ -9,11 +9,10 @@
         <div class="topbar-nav" v-if="!islogin">
           <a v-for="nav in navs" @click="navclick(nav)" :style="{color:nav.href==currentnav?'#4cb5ff':'#000'}">{{nav.value}}</a>
         </div>
-        <div class="topbar-loginregister" v-if="!islogin">
-          <!-- <Button size="large" @click="gologinpage">登录</Button> -->
+       <!--  <div class="topbar-loginregister" v-if="!islogin">
           <router-link class="footer-bar-company" to="/login"><Button size="large" type="primary" ghost>登录</Button></router-link>
           <router-link class="footer-bar-company" to="/register"><Button size="large" type="primary">注册</Button></router-link>
-        </div>
+        </div> -->
         <div class="topbar-right" v-if="islogin">
             <span class="topbar-right-logintext">
               可用余额：<span class="common-primary" v-text="finance.money"></span>元
@@ -47,7 +46,7 @@
         //是否登陆
         this.getIslogin();
        }
-       this.getConfig();
+       //this.getConfig();
        if(this.business.getAccount()){
          this.pathParams={
            currentPage:1,//当前页
